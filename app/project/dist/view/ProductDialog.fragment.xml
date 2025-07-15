@@ -1,0 +1,48 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog id="productDialog" title="Product Details" class="customDialog">
+        <VBox class="customVBox">
+            <Label text="Name" class="customLabel" />
+            <Input id="inputName" class="customInput" width="250px"/>
+
+            <Label text="Price" class="customLabel" />
+            <Input id="inputPrice" type="Number" class="customInput" width="250px" />
+
+            <Label text="Quantity" class="customLabel" />
+            <Input id="inputQuantity" class="customInput" width="250px"/>
+
+            <Label text="Stock" class="customLabel" />
+            <Input id="inputStock" type="Number" class="customInput" width="250px"/>
+
+            <Label text="Category" class="customLabel" />
+            <Select id="inputCategory" class="customSelect">
+                <items>
+                    <core:Item key="Fruit" text="Fruit" />
+                    <core:Item key="Vegetable" text="Vegetable" />
+                    <core:Item key="Grains" text="Grains" />
+                    <core:Item key="Essentials" text="Essentials" />
+                    <core:Item key="Soft Drinks" text="Soft Drinks" />
+                    <core:Item key="Fruit Juices" text="Fruit Juices" />
+                    <core:Item key="Dairy &amp; Eggs" text="Dairy &amp; Eggs" />
+                    <core:Item key="Breads" text="Breads" />
+                    <core:Item key="Breakfast Instant" text="Breakfast Instant" />
+                    <core:Item key="Instant Noodles" text="Instant Noodles" />
+                    <core:Item key="Chocolates &amp; Sweets" text="Chocolates &amp; Sweets" />
+                    <core:Item key="Ice Creams" text="Ice Creams" />
+                    <core:Item key="Tea" text="Tea" />
+                    <core:Item key="Coffee" text="Coffee" />
+                </items>
+            </Select>
+
+            <Label text="Image URL" class="customLabel" />
+            <Input id="inputImage" class="customInput" width="250px"/>
+        </VBox>
+
+        <endButton>
+            <Button text="Cancel" press="onDialogCancel" class="customButton" />
+        </endButton>
+        <beginButton>
+            <Button text="Save" type="Emphasized" press="onDialogSave" class="customButton" />
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>
+

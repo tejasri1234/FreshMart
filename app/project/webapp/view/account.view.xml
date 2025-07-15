@@ -1,0 +1,53 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="project.controller.account">
+
+  <Page showHeader="false">
+    <content>
+      <VBox class="customNavBar">
+                <HBox alignItems="Center" justifyContent="SpaceBetween" height="3rem" width="100%">
+                    <!-- Left Section: Menu + Logo -->
+                    <HBox alignItems="Center" class="leftSection" width="20%">
+                      <Button icon="sap-icon://menu" press="onMenuPress" class="largeIconButton" type="Transparent"/>
+                        <HBox alignItems="Center" class="logoBox">
+                            <Text text="Fresh" class="freshText"/>
+                            <Text text="Mart" class="martText"/>
+                        </HBox>
+                    </HBox>
+                
+
+                    <!-- Right Section: Icons -->
+                    <HBox alignItems="Center" justifyContent="End" width="20%" class="rightIcons">
+                       
+                        
+                    </HBox>
+                </HBox>
+            </VBox>
+      <VBox class="customerContainer">
+
+        <HBox class="customerCard">
+          <Avatar src="sap-icon://customer" displaySize="L" class="customerAvatar" />
+          <VBox class="customerDetails">
+            <Text text="{userModel>/name}" class="customerName" />
+            <Text text="{userModel>/address}" class="customerAddress" />
+            <Text text="Email: {userModel>/email}" class="customerEmail" />
+            <Text text="Phone: {userModel>/phone}" class="customerPhone" />
+          </VBox>
+        </HBox>
+
+
+        <!-- Action Buttons Below -->
+        <VBox class="actionButtons">
+          <Button text="Change Password"  class="wideActionButton" press="onChangePassword" enabled="{= ${userModel>/id} ? true : false }" />
+          <Button text="Change Address"  class="wideActionButton" press="onChangeAddress" enabled="{= ${userModel>/id} ? true : false }"  />
+        </VBox>
+
+
+    </VBox>
+
+    </content>
+  </Page>
+</mvc:View>
+
+

@@ -1,0 +1,41 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+          xmlns="sap.m"
+          controllerName="project.controller.AdminProduct">
+    <Page showHeader="false"><content>
+    
+    <VBox class="sapUiSmallMargin">
+        <Toolbar class="productToolbar">
+            <Title text="Product Management" level="H1" class="toolbarTitle" />
+
+            <ToolbarSpacer />
+            <Button text="Add Product" icon="sap-icon://add" press="onOpenDialog" class="addProductButton" tooltip="Add a new product" />
+        </Toolbar>
+
+
+        <Table id="productTable" items="{/Product}" mode="SingleSelectMaster" >
+            <columns>
+                <Column><Text text="Name" class="columnName" /></Column>
+                <Column><Text text="Price" /></Column>
+                <Column><Text text="Quantity" /></Column>
+                <Column><Text text="Stock" /></Column>
+                <Column><Text text="Category" /></Column>
+                <Column><Text text="Image" /></Column>
+                <Column><Text text="Actions" /></Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{name}" />
+                        <Text text="{price}" />
+                        <Text text="{quantity}" />
+                        <Text text="{stock}" />
+                        <Text text="{category_name}" />
+                        <Image src="{image}" width="50px" />
+                        <Button icon="sap-icon://action" press="onOpenActionSheet" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </VBox>
+    </content></Page>
+</mvc:View>

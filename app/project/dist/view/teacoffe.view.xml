@@ -1,0 +1,57 @@
+<mvc:View controllerName="project.controller.teacoffe"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page9" showHeader="false">
+        <content>
+            <!-- Navigation Bar -->
+            <core:Fragment fragmentName="project.view.NavBar" type="XML" xmlns:core="sap.ui.core"/>
+
+            <VBox width="150px" class="sidebarContainer">
+                    <Button text="Tea" type="Transparent" press="onFruitsPress" class="sidebarText"/>
+                    <Button text="Coffee" type="Transparent" press="onVegetablesPress" class="sidebarText"/>
+                </VBox>
+            <!-- Product Sections -->
+            <VBox class="mainContainer">
+        
+                <HBox id="teaList" wrap="Wrap" class="HSection" justifyContent="Start" items="{/Product}" width="86.5%">
+                    <items>
+                        <VBox>
+                            <VBox class="itemCard">
+                                <Image src="{image}" width="100%" />
+                            </VBox>
+                            <VBox class="itemText">
+                                <Text text="{name}" class="itemName" />
+                                <Text text="{quantity}" class="itemWeight" />
+                                <Text text="₹{price}" class="itemPrice" />
+                                <Text text="{stock}" visible="false" />
+                                <Button text="Add to Cart" type="Emphasized" press="onAddToCart" class="addtocartButton"/>
+                            </VBox>
+                        </VBox>
+                    </items>
+                </HBox>
+
+              
+                <HBox id="coffeeList" wrap="Wrap" class="HSection" justifyContent="Start" items="{/Product}" width="86.5%">
+                    <items>
+                        <VBox>
+                            <VBox class="itemCard">
+                                <Image src="{image}" width="100%" />
+                            </VBox>
+                            <VBox class="itemText">
+                                <Text text="{name}" class="itemName" />
+                                <Text text="{quantity}" class="itemWeight" />
+                                <Text text="₹{price}" class="itemPrice" />
+                                <Text text="{stock}" visible="false" />
+                                <Button text="Add to Cart" type="Emphasized" press="onAddToCart" class="addtocartButton"/>
+                            </VBox>
+                        </VBox>
+                    </items>
+                </HBox>
+            </VBox>
+
+            <core:Fragment fragmentName="project.view.Footer" type="XML" xmlns:core="sap.ui.core"/>
+          
+        </content>
+    </Page>
+    <core:Fragment fragmentName="project.view.CartPanel" type="XML" xmlns:core="sap.ui.core"/>
+</mvc:View>

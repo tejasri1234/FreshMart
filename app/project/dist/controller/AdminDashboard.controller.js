@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/mvc/Controller","sap/m/MessageToast","sap/ui/core/UIComponent"],function(n,t,o){"use strict";return n.extend("project.controller.AdminDashboard",{onInit:function(){},onProductManagement:function(){this._navigateTo("AdminProduct")},onAnalytics:function(){this._navigateTo("Charts")},_navigateTo:function(n){var t=o.getRouterFor(this);t.navTo(n)}})});
+//# sourceMappingURL=AdminDashboard.controller.js.map

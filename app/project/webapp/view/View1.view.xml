@@ -1,0 +1,54 @@
+<mvc:View controllerName="project.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page1" showHeader="false">
+        <content>
+            <core:Fragment fragmentName="project.view.NavBar" type="XML" xmlns:core="sap.ui.core"/>
+
+            
+            <HBox wrap="Wrap" class="cardContainer" justifyContent="Start">
+                <VBox class="groceryCard" width="10em" height="10rem">
+                    <Image src="images/img1.png" densityAware="false" press="onImagePress1"/>                   
+                </VBox>
+                <VBox class="groceryCard" width="10em" height="10rem">
+                    <Image src="images/img2.png" densityAware="false" press="onImagePress2"/>
+                    
+                </VBox>
+                <VBox class="groceryCard" width="10em" height="10rem">
+                    <Image src="images/img3.png" densityAware="false" press="onImagePress3"/>
+                    
+                </VBox>
+                <VBox class="groceryCard" width="10em" height="10rem">
+                    <Image src="images/img4.png" densityAware="false" press="onImagePress4"/>
+                    
+                </VBox>
+                <VBox class="groceryCard" width="10em" height="10rem">
+                    <Image src="images/img5.png" densityAware="false" press="onImagePress5"/>
+                    
+                </VBox>
+                <VBox class="groceryCard" width="10em" height="10rem">
+                    <Image src="images/img6.png" densityAware="false" press="onImagePress6"/>
+                    
+                </VBox>
+                <VBox class="groceryCard" width="10em" height="10rem">
+                    <Image src="images/img7.png" densityAware="false" press="onImagePress7"/>
+                    
+                </VBox>
+            </HBox>
+            <HBox width="90%" class="bannerBox">                
+                <VBox class="bannerTextBox">
+                    <Text text="Groceries" class="bannerText" />
+                    <Text text="delivered in" class="bannerText" />
+                    <Text text="10 Minutes" class="bannerText" />
+                </VBox>
+
+                <Image src="images/banner.png" alt="Special Offer" densityAware="false" class="bannerImage"/>
+
+            </HBox>
+            <core:Fragment fragmentName="project.view.Footer" type="XML" xmlns:core="sap.ui.core"/>
+
+        </content>
+    </Page>
+    <core:Fragment fragmentName="project.view.CartPanel" type="XML" xmlns:core="sap.ui.core"/>
+
+</mvc:View>

@@ -1,0 +1,17 @@
+<mvc:View
+    controllerName="project.controller.Charts"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds">
+    <Page title="Analytic Dashboard">
+        <content>
+            <VBox>
+                <viz:VizFrame id="idPieChart" uiConfig="{applicationSet:'fiori'}" vizType="pie" width="100%" height="400px"/>
+                <viz:VizFrame id="idBarChart" uiConfig="{applicationSet:'fiori'}" vizType="bar" width="100%" height="400px"/>
+            </VBox>
+
+        </content>
+    </Page>
+</mvc:View>

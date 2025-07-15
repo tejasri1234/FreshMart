@@ -1,0 +1,21 @@
+<Panel
+    id="cartPanel"
+    class="cartPanel"
+    expandable="false"
+    visible="false"
+    width="28%"
+    height="100%"
+    xmlns="sap.m"
+>
+    <Button
+        icon="sap-icon://decline"
+        type="Transparent"
+        press="onCloseCart"
+        class="closeCartButton"
+    />
+    <VBox id="cartItemsContainer" class="cartItemsContainer">
+        <!-- Cart items will be dynamically added here -->        
+    </VBox>
+    <Text id="totalPriceText" class="totalPriceText" text="Total: ₹0" />
+    <Button id="placeOrderButton" text="Place Order" press="onPlaceOrder" type="Emphasized" class="placeOrderButton" />
+</Panel>

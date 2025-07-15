@@ -1,0 +1,266 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "project",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.18.0",
+      "toolsId": "e83f4f41-21ed-4ee8-baad-e95cff6730b5"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v2/catalog/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.136.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "project.i18n.i18n"
+        }
+      },
+      "": {
+        "type": "sap.ui.model.odata.v4.ODataModel",
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "project.view",
+        "async": true,
+        "viewPath": "project.view"
+      },
+      "routes": [
+        {
+          "name": "RouteView1",
+          "pattern": ":?query:",
+          "target": [
+            "TargetView1"
+          ]
+        },
+        {
+          "name": "Login",
+          "pattern": "Login",
+          "target": [
+            "Login"
+          ]
+        },
+        {
+          "name": "fruitVegetable",
+          "pattern": "fruitVegetable",
+          "target": [
+            "fruitVegetableTarget"
+          ]
+        },
+        {
+          "name": "attarice",
+          "pattern": "attarice",
+          "target": [
+            "attarice"
+          ]
+        },
+        {
+          "name": "sweet",
+          "pattern": "sweet",
+          "target": [
+            "sweet"
+          ]
+        },
+        {
+          "name": "dairy",
+          "pattern": "dairy",
+          "target": [
+            "dairy"
+          ]
+        },
+        {
+          "name": "packed",
+          "pattern": "packed",
+          "target": [
+            "packed"
+          ]
+        },
+        {
+          "name": "cooldrinks",
+          "pattern": "cooldrinks",
+          "target": [
+            "cooldrinks"
+          ]
+        },
+        {
+          "name": "teacoffe",
+          "pattern": "teacoffe",
+          "target": [
+            "teacoffe"
+          ]
+        },
+        {
+          "name": "account",
+          "pattern": "account",
+          "target": [
+            "account"
+          ]
+        },
+        
+        {
+          "pattern": "orders",
+  "name": "Orders",
+  "target": "Orders"
+  },
+  {
+    "name": "AdminDahsboard",
+    "pattern": "AdminDashboard",
+    "target": [
+      "AdminDashboard"
+    ]
+  },
+  {
+    "name": "AdminProduct",
+    "pattern": "AdminProduct",
+    "target": [
+      "AdminProduct"
+    ]
+  },
+  {
+    "name": "Charts",
+    "pattern": "Charts",
+    "target": [
+      "Charts"
+    ]
+  }
+  
+      ],
+      "targets": {
+        "TargetView1": {
+          "id": "View1",
+          "name": "View1"
+        },
+        "Login" : {
+          "id": "Login",
+          "name": "Login"
+        },
+        "account" : {
+          "id": "account",
+          "name": "account"
+        },
+        "fruitVegetableTarget" : {
+          "id": "fruitVegetable",
+          "name": "fruitVegetable"
+        },
+        "attarice" : {
+          "id": "attarice",
+          "name": "attarice"
+        },
+        "sweet" : {
+          "id": "sweet",
+          "name": "sweet"
+        },
+        "dairy" : {
+          "id": "dairy",
+          "name": "dairy"
+        },
+        "packed" : {
+          "id": "packed",
+          "name": "packed"
+        },
+        "cooldrinks" : {
+          "id": "cooldrinks",
+          "name": "cooldrinks"
+        },
+        "teacoffe" : {
+          "id": "teacoffe",
+          "name": "teacoffe"
+        },
+        
+        "Orders": {
+          "viewName": "Orders",
+          "viewType": "XML",
+          "transition": "slide",
+            "clearAggregation": false
+        },
+        "AdminDashboard": {
+          "name": "AdminDashboard",
+          "id": "AdminDahsboard"
+        },
+        "AdminProduct": {
+          "name": "AdminProduct",
+          "id": "AdminProduct"
+        },
+        "Charts":{
+          "id": "Charts",
+          "name": "Charts"
+        }
+  
+
+      }
+    },
+    "rootView": {
+      "viewName": "project.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

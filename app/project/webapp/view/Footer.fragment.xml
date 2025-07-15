@@ -1,0 +1,10 @@
+<VBox class="customFooter" xmlns="sap.m">
+                <HBox class="footerContent" >
+                    <Label class="footerText" text="© 2025 FreshMart. All rights reserved." />
+                    <HBox class="footerLinks" >
+                        <Link class="footerLink" text="Privacy Policy" href="/privacy" />
+                        <Link class="footerLink" text="Terms of Service" href="/terms" />
+                        <Link class="footerLink" text="Contact Us" href="/contact" />
+                    </HBox>
+                </HBox>
+            </VBox>

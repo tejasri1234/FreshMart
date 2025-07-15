@@ -1,0 +1,755 @@
+/* Enter your custom styles here */
+.customNavBar {
+    position: fixed;
+    top: 0;
+    left: 0px; /* Same as sidebar width */
+    right: 0;
+    background-color: white;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1001; /* Higher than sidebar to stay on top */
+    /* Adjust width to exclude sidebar */
+}
+
+.sidebarContainer {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    width: 120px;
+    height: 100vh; /* Full viewport height */
+    background-color: white;
+    border-radius: 1%;
+    padding-top: 50px;
+    padding-left:3px;
+    border-right: 2px solid #ddd;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; 
+}
+.sidebarContainer .sapMBtn {
+    margin-bottom: 15px;
+    width: 90%;
+    border-radius: 5px;
+    
+}
+.sidebarContainer .sapMBtn .sapMBtnInner{
+    font-size: 1.1rem;
+    color:black;
+}
+
+
+.freshText {
+    font-size: 2rem;
+    color: #2e7d32;
+    /* Green */
+    font-weight: bold;
+}
+
+
+.martText {
+    font-size: 2rem;
+    color: #ff6f00;
+    /* Orange */
+    font-weight: normal;
+}
+
+.logoBox {
+    margin-left: 2rem;
+}
+
+.searchBox {
+    padding: 0 1rem;
+}
+
+.rightIcons button {
+    margin-left: 1.8rem;
+}
+.largeIconButton{
+    margin-bottom:10px;
+}
+.largeIconButton .sapMBtnIcon {
+    font-size: 1.6rem !important;
+    /* Increase icon size */
+    line-height: 1 !important;
+    width: 2rem;
+    height: 1.5rem;
+}
+
+/* Optionally resize the button itself */
+.largeIconButton .sapMBtnInner {
+    width: 3rem !important;
+    height: 2.5rem !important;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cardContainer {
+    padding-top: 1rem;
+    padding-left: 4rem;
+    gap: 1rem;
+    margin-top: 80px;
+}
+
+.groceryCard {
+    background-color: white;
+    padding-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.groceryCard:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.groceryCard img:focus {
+    outline: none;
+    border: none;
+}
+
+
+/* Image styling */
+.groceryCard img.sapMImg {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 60%;
+    object-fit: contain;
+}
+
+.bannerBox {
+    margin-top: 1.5rem;
+    margin-left: 60px;
+    width: 100%;
+    height: 330px;
+    border-radius: 12px;
+    background: linear-gradient(to right, #87ceeb, #e0f7fa);
+    /* soft gradient */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bannerTextBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 30px;
+    flex: 1;
+}
+
+.bannerText {
+    font-size: 36px;
+    line-height: 60px;
+    font-weight: 700;
+    color: #2c3e50;
+    text-align: left;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.bannerImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+}
+
+.customLabel {
+    padding-top: 16px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.customFooter {
+    background-color: white;
+    margin-top: 2rem;
+    font-family: Arial, sans-serif;
+}
+
+.footerContent {
+    padding:30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 3rem;
+    width: 100%;
+}
+
+.footerText {
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+.footerLinks {
+    display: flex;
+    gap: 1rem;
+}
+
+.footerLink {
+    color: #248ba5;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footerLink:hover {
+    color: #3498db;
+}
+
+/*second page styling*/
+/* Main container styling */
+.mainContainer {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left:160px;
+    background-color: whitesmoke;
+    padding-top:2rem;
+    margin-top:60px;
+    width:100%;
+    box-sizing: border-box;
+
+
+}
+
+
+
+/* Section layout */
+.HSection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background-color: white;
+    padding:3rem;
+    width:98%;
+    border-radius: 1%;
+    box-sizing: border-box;
+    box-shadow: 2px 0 5px rgba(199, 192, 192, 0.1);
+}
+
+/* Item card container */
+.itemCard {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Ensure no padding */
+    margin: 0;  /* Ensure no margin */
+}
+
+.itemCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Removes any default spacing */
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+.itemText {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem; /* Adds spacing between text elements */
+    margin-top: 1rem;
+
+}
+
+/* Bold and slightly larger font for name and price */
+.itemName,
+.itemPrice {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Optional: style for weight */
+.itemWeight {
+    font-size: 1rem;
+    color: #555;
+}
+.addtocartButton {
+    width: 100%;
+    max-width: 12rem; /* Optional: limit max width */
+    padding: 0.6rem 1rem;
+    font-size: 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+.cartPanel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    overflow-y: auto;
+}
+
+/* cart close button */
+.closeCartButton {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1001;
+}
+
+.closeCartButton .sapMBtnIcon {
+    font-size: 1.2rem;
+    width: auto;
+    height: auto;
+    line-height: normal;
+    transition: transform 0.2s ease;
+}
+
+/* cart items */
+.cartItemsContainer {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cartItemBox {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: linear-gradient(to right, #ffffff, #f1f1f1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.cartItemBox:hover {
+    transform: scale(1.01);
+}
+
+.cartItemName {
+    font-weight: 600;
+    font-size: 17px;
+    color: #333;
+    margin-top: 6px;
+}
+
+
+.quantityControlBox {
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left:80px;
+}
+
+.cartItemQuantity {
+    font-size: 15px;
+    padding: 4px 12px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.totalPriceText {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: right;
+    color: black;
+}
+
+.placeOrderButton {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #007aff;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px 0;
+    transition: background-color 0.3s ease;
+}
+.placeOrderButton:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+/* Center the login/register box on the page */
+
+.loginContainer {
+    align-items: center;
+    justify-content: center;
+ 
+}
+ 
+.formBox {
+    width: 370px;
+    height: 490px;
+    transition: opacity 0.4s ease-in-out;
+    padding: 50px;
+    border-radius: 12px;
+    border: 2px solid #eaf1f1;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+ 
+.fadeIn {
+    animation: fadeIn 0.4s ease-in-out;
+}
+ 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+ 
+    to {
+        opacity: 1;
+    }
+}
+ 
+ 
+.loginTitle {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: bold;
+}
+ 
+.inputField {
+    margin-bottom: 8px;
+    height: 2rem;
+    font-size: 0.95rem;
+}
+ 
+.checkbox {
+    margin: 10px 0;
+    font-size: 0.95rem;
+}
+ 
+.loginButton {
+    width: 100%;
+    margin-top: 10px;
+    height: 2.2rem;
+    font-size: 1rem;
+}
+ 
+.link {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+ 
+ 
+.sapUiSmallMargin left-img {
+    padding-left: 0.2rem !important;
+    padding-top: 2 rem !important;
+}
+ 
+.sapUiSmallMargin {
+    height: 20px !important;
+    font-size: 18px !important;
+    padding-left: 0.2rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+.closeLoginDialogButton {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+}
+.cartEmptyText {
+    color: black;
+    font-size: 1.15rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 50px 0 24px 0;
+    padding: 16px 0;
+    background: #f8fafc;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+}
+.searchBox {
+    position: relative; /* Make this the positioning context */
+}
+
+.searchResultsBox {
+    position: absolute;
+    top: 2rem; /* Adjust this value to match your SearchField height + margin */
+    left: 0;
+    right: 18rem;
+    z-index: 1000;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 0.5rem 1rem;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.searchResultsList {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    margin : 0.2rem;
+}
+
+.searchResultCard {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    padding: 0.5rem 1rem;
+    transition: box-shadow 0.2s, background 0.2s;
+    max-width: 420px !important;
+    width:420px;
+}
+
+.searchResultCard:hover {
+    background: #f1f7ff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+}
+
+.productName {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #222;
+}
+/* order styling */
+.ordersContainer {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    margin-top:50px;
+}
+
+/* Adds spacing between each order item */
+.ordersList .sapMSLI {
+    border-bottom: 1px solid #ddd;
+    padding: 2rem;
+    margin-bottom: 1.5rem; /* space between orders */
+}
+
+/* Padding for the first three text elements */
+.ordersList .sapMText:nth-child(1),
+.ordersList .sapMText:nth-child(2),
+.ordersList .sapMText:nth-child(3) {
+    padding: 0.5rem;
+}
+
+.sapMSLITitle {
+    font-weight: bold;
+    color: #333;
+}
+
+.sapMSLIDescription {
+    color: #666;
+}
+
+.sapMSLIInfo {
+    font-weight: bold;
+}
+
+/* Container for the whole section */
+.customerContainer {
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    width: 90%;
+    margin:70px;
+    height: auto;
+    
+  }
+  
+  /* Card layout */
+  .customerCard {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    align-items: center;
+  }
+  
+  /* Avatar styling */
+  .customerAvatar {
+    margin-right: 3rem;
+    margin-left: 2rem;
+  }
+  
+  /* Text layout */
+  .customerDetails .sapMText {
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .customerName {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .customerAddress,
+  .customerEmail,
+  .customerPhone {
+    font-size: 1rem;
+  }
+
+/* Ensure both buttons have same width */
+.wideActionButton .sapMBtnInner {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 50px !important;
+    box-sizing: border-box;
+  }
+  
+  /* Container styling */
+  .actionButtons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Ensures buttons fill container */
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  /* Button styling */
+  .wideActionButton {
+    width: 100% !important; /* Ensure outer button fills container */
+    font-size: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect */
+  .wideActionButton:hover {
+    cursor: pointer;
+  }
+  .customDialog {
+    background-color: #fefefe;
+    border-radius: 12px;
+    padding-left: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    height:430px;
+}
+
+.customVBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.customLabel {
+    font-weight: bold;
+    color: #444;
+}
+
+.customInput,
+.customSelect {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.customButton {
+    margin: 10px 5px;
+}
+/* admin dahsboard */
+.adminPage {
+    background-color: #f4f6f9;
+}
+
+.topLeftContainer {
+    padding: 80px;
+}
+
+.cardButtonRow {
+    gap: 30px;
+}
+
+.cardButton {
+    width: 300px !important;
+    height: 180px !important;
+    font-size: 1.5rem !important; /* Increased text size */
+    font-weight: bold;
+    text-align: center;
+    background-color: #007acc;
+    color: white; /* Text color visible on white background */
+    border: none; /* Removes border */
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(104, 95, 95, 0.1);
+    transition: all 0.3s ease; /* Smooth transition */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardButton:hover {
+    transform: scale(1.03);
+    background-color: #005fa3;
+    color: white; /* Text turns white on hover */
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+.productToolbar {
+    padding: 1.5rem;
+    border-bottom: 1px solid #ddd;
+   
+}
+
+.toolbarTitle {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.searchBox {
+    margin-left: 3rem;
+}
+
+.addProductButton {
+    
+    border-radius: 4px;
+}
+.cartBadge{
+    font-size: 1rem;
+    margin:0;
+    background-color: #007acc;
+    padding:5px;
+    border-radius:5px;
+    color:white;
+}
+
+  
+  
+
+  
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

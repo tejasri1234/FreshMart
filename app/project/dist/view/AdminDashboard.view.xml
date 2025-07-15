@@ -1,0 +1,19 @@
+<mvc:View
+    controllerName="project.controller.AdminDashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page title="Admin Dashboard" class="adminPage">
+        <VBox class="topLeftContainer" width="100%" height="100%">
+            <HBox class="cardButtonRow" alignItems="Start" justifyContent="Start">
+                <Button text="Product Management" icon="sap-icon://product" press="onProductManagement" class="cardButton" />
+                <Button text="Analytics Dashboard" icon="sap-icon://business-objects-experience" press="onAnalytics" class="cardButton" />
+            </HBox>
+        </VBox>
+    </Page>
+</mvc:View>
+
+
+
+

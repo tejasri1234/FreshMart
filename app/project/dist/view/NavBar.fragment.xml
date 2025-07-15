@@ -1,0 +1,88 @@
+<core:FragmentDefinition xmlns="sap.m"
+                         xmlns:core="sap.ui.core"
+                         xmlns:l="sap.ui.layout">
+    <!-- Navigation Bar -->
+    <VBox class="customNavBar">
+        <HBox alignItems="Center" justifyContent="SpaceBetween" height="3rem" width="100%">
+            <!-- Left Section: Menu + Logo -->
+            <HBox alignItems="Center" class="leftSection" width="20%">
+                <Button icon="sap-icon://menu" press="onMenuPress" class="largeIconButton" type="Transparent"/>
+                <HBox alignItems="Center" class="logoBox">
+                    <Text text="Fresh" class="freshText"/>
+                    <Text text="Mart" class="martText"/>
+                </HBox>
+            </HBox>
+
+            <!-- Middle Section: Search -->
+            <HBox width="50%" class="searchBox" alignItems="Center">
+                <SearchField placeholder="Search groceries..." width="200%" liveChange="onSearch" />
+
+                <HBox width="100%" class="searchResultsBox" visible="{= ${searchModel>/results}.length > 0 }">
+                    <List items="{searchModel>/results}" width="100%" class="searchResultsList">
+                    <CustomListItem class="searchResultCard">
+                        <HBox alignItems="Center" width="100%">
+                        <Image src="{searchModel>image}" width="3rem" />
+                        <VBox>
+                            <Text text="{searchModel>name}" class="productName" />
+                            <Text text="₹{searchModel>price}" class="productPrice" />
+                            <Text text="{searchModel>category_name}" class="productCategory" />
+                        </VBox>
+                        </HBox>
+                    </CustomListItem>
+                    </List>
+                </HBox>
+            </HBox>
+
+
+            <!-- Right Section: Icons -->
+            <HBox alignItems="Center" justifyContent="End" width="20%" class="rightIcons">
+                <Button icon="sap-icon://customer" press="onProfilePress" class="largeIconButton" type="Transparent"/>
+                <Button icon="sap-icon://cart" press="onCartPress" class="largeIconButton" type="Transparent" id="cartButton"/>
+                <Label text="{cartStatusModel>/cartCount}" class="cartBadge" visible="{= ${cartStatusModel>/cartCount} > 0 }"/>
+
+            </HBox>
+        </HBox>
+    </VBox>
+
+    <!-- Login/Register Dialog -->
+    <Dialog id="loginRegisterDialog" showHeader="false" contentWidth="370px" class="loginDialog">
+        <VBox class="loginBox">
+            <!-- Login Form -->
+            <VBox id="loginForm" class="formBox fadeIn">
+                <Button icon="sap-icon://decline" type="Transparent" press="onCloseLoginDialog"
+                        class="closeLoginDialogButton" tooltip="Close"/>
+                <Title text="Login to Your Account" level="H1" class="loginTitle"/>
+                <Label text="Email Address" class="inputLabel" required="true"/>
+                <Input id="emailInput" type="Email" class="inputField"/>
+                <Label text="Password" class="inputLabel" required="true"/>
+                <Input id="passwordInput" type="Password" class="inputField"
+                       showValueHelp="true" valueHelpIconSrc="sap-icon://show"
+                       valueHelpRequest="onToggleLoginPasswordVisibility"/>
+                <Button text="Sign In" press="onLoginPress" type="Emphasized" class="loginButton"/>
+                <Link text="Forgot your password?" press="onForgotPasswordPress" class="link"/>
+                <Link text="New here? Create an account" press="onToggleForm" class="link"/>
+            </VBox>
+
+            <!-- Registration Form -->
+            <VBox id="registerForm" visible="false" class="formBox fadeIn">
+                <Title text="Create Your Account" level="H1" class="loginTitle"/>
+                <Label text="Full Name" class="inputLabel" required="true"/>
+                <Input id="fullName" class="inputField"/>
+                <Label text="Email Address" class="inputLabel" required="true"/>
+                <Input id="registerEmail" type="Email" class="inputField"/>
+                <Label text="Mobile Number" class="inputLabel" required="true"/>
+                <Input id="mobileNumber" type="Tel" class="inputField"/>
+                <Label text="Password" class="inputLabel" required="true"/>
+                <Input id="registerPassword" type="Password" class="inputField"
+                       showValueHelp="true" valueHelpIconSrc="sap-icon://show"
+                       valueHelpRequest="onToggleRegisterPasswordVisibility"/>
+                <Label text="Address" class="inputLabel" required="true"/>
+                <Input id="address" class="inputField"/>
+                <CheckBox id="terms" text="I agree to the Terms &amp; Conditions" class="checkbox"/>
+                <Button text="Register Account" press="onRegister" type="Emphasized" class="loginButton"/>
+                <Link text="Already have an account? Sign In" press="onToggleForm" class="link"/>
+            </VBox>
+        </VBox>
+    </Dialog>
+</core:FragmentDefinition>
+

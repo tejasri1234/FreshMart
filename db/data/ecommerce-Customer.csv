@@ -1,0 +1,3 @@
+id,name,email,phone,password,address,createdAt
+e42c2efb-debc-4679-a524-7121afd1a774,Alice Johnson,alice@example.com,1234567890,alice123,123 Maple Street,2023-01-01T10:00:00
+00fe8c98-a9c1-4505-87fc-2e4ba0e71d61,Bob Smith,bob@example.com,9876543210,bobsecure,456 Oak Avenue,2023-02-15T14:30:00
