@@ -10,8 +10,9 @@
             <HBox>
                 <!-- Sidebar -->
                 <VBox width="150px" class="sidebarContainer">
-                    <Button text="Fruits" type="Transparent" press="onFruitsPress" class="sidebarText"/>
-                    <Button text="Vegetables" type="Transparent" press="onVegetablesPress" class="sidebarText"/>
+                    <Button text="{i18n>fruits}" type="Transparent" press="onFruitsPress" class="sidebarText"/>
+                    <Button text="{i18n>vegetables}" type="Transparent" press="onVegetablesPress" class="sidebarText"/>
+
                 </VBox>
                 
                     <VBox class="mainContainer">
@@ -27,7 +28,7 @@
                                         <Text text="{quantity}" class="itemWeight" />
                                         <Text text="₹{price}" class="itemPrice" />
                                         <Text text="{stock}" visible="false" />
-                                        <Button text="Add to Cart" type="Emphasized" press="onAddToCart" class="addtocartButton"/>
+                                        <Button text="{i18n>addToCart}" type="Emphasized" press="onAddToCart" class="addtocartButton"/>
                                     </VBox>
                                 </VBox>
                             </items>

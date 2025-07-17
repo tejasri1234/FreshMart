@@ -402,6 +402,7 @@ sap.ui.define([
                     cartModel.setProperty("/items", []);
                     cartModel.setProperty("/totalAmount", 0);
                     this.onCloseCart(oView);
+                    this.updateCartCount();
                     this.updateCartDisplay(oView);
                      // Refresh orders model
 

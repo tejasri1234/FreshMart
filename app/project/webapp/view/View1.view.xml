@@ -37,9 +37,9 @@
             </HBox>
             <HBox width="90%" class="bannerBox">                
                 <VBox class="bannerTextBox">
-                    <Text text="Groceries" class="bannerText" />
-                    <Text text="delivered in" class="bannerText" />
-                    <Text text="10 Minutes" class="bannerText" />
+                    <Text text="{i18n>groceries}" class="bannerText" />
+                    <Text text="{i18n>deliveredIn}" class="bannerText" />
+                    <Text text="{i18n>tenMinutes}" class="bannerText" />
                 </VBox>
 
                 <Image src="images/banner.png" alt="Special Offer" densityAware="false" class="bannerImage"/>

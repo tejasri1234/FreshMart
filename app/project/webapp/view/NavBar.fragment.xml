@@ -8,14 +8,15 @@
             <HBox alignItems="Center" class="leftSection" width="20%">
                 <Button icon="sap-icon://menu" press="onMenuPress" class="largeIconButton" type="Transparent"/>
                 <HBox alignItems="Center" class="logoBox">
-                    <Text text="Fresh" class="freshText"/>
-                    <Text text="Mart" class="martText"/>
+                    <Text text="{i18n>fresh}" class="freshText"/>
+                    <Text text="{i18n>mart}" class="martText"/>
+
                 </HBox>
             </HBox>
 
             <!-- Middle Section: Search -->
             <HBox width="50%" class="searchBox" alignItems="Center">
-                <SearchField placeholder="Search groceries..." width="200%" liveChange="onSearch" />
+                <SearchField placeholder="{i18n>Searchgroceries}" width="200%" liveChange="onSearch" />
 
                 <HBox width="100%" class="searchResultsBox" visible="{= ${searchModel>/results}.length > 0 }">
                     <List items="{searchModel>/results}" width="100%" class="searchResultsList">
@@ -39,6 +40,14 @@
                 <Button icon="sap-icon://customer" press="onProfilePress" class="largeIconButton" type="Transparent"/>
                 <Button icon="sap-icon://cart" press="onCartPress" class="largeIconButton" type="Transparent" id="cartButton"/>
                 <Label text="{cartStatusModel>/cartCount}" class="cartBadge" visible="{= ${cartStatusModel>/cartCount} > 0 }"/>
+                <Select id="languageSelector" change="onLanguageChange">
+                <items>
+                    <core:Item key="en" text="English" />
+                    <core:Item key="de" text="Deutsch" />
+                    <core:Item key="fr" text="Français" />
+                </items>
+                </Select>
+
 
             </HBox>
         </HBox>

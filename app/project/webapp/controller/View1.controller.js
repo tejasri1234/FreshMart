@@ -17,12 +17,27 @@ sap.ui.define([
       // Disable right-click
   
     },
+    onLanguageChange: function (oEvent) {
+      const selectedLang = oEvent.getSource().getSelectedKey();
+    
+      // Create a new i18n model with the selected language
+      const i18nModel = new sap.ui.model.resource.ResourceModel({
+        bundleName: "project.i18n.i18n", // adjust to your actual namespace
+        bundleLocale: selectedLang
+      });
+    
+      // Set the new model to the view
+      this.getView().setModel(i18nModel, "i18n");
+    
+      // Optional: store the language in localStorage
+      
+    },    
     onMenuPress: function (oEvent) {
       if (!this._oMenuSheet) {
         this._oMenuSheet = new sap.m.ActionSheet({
           buttons: [
             new sap.m.Button({
-              text: "My Orders",
+              text:"{i18n>myOrders}" ,
               icon: "sap-icon://order-status",
               press: () => {
                 const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
@@ -30,7 +45,8 @@ sap.ui.define([
               }
             }),
             new sap.m.Button({
-              text: "Account",
+      
+              text:"{i18n>account}",
               icon: "sap-icon://account",
               press: () => {               
                   var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
