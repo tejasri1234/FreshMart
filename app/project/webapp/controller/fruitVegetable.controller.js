@@ -10,37 +10,73 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("project.controller.fruitVegetable", {
-        onInit: function () {
-            // Load custom CSS
-            jQuery.sap.includeStyleSheet("css/style.css");
+      onInit: function () {
+    jQuery.sap.includeStyleSheet("project/css/style.css");
 
-            // Set OData model
-            var oModel = this.getOwnerComponent().getModel(); // OData V4 model
-            this.getView().setModel(oModel);
-            this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
-            
-            var oEventBus = sap.ui.getCore().getEventBus();
-            oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+    var oModel = this.getOwnerComponent().getModel(); // OData V4 model
+    this.getView().setModel(oModel);
+    this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
 
-            
-      
+    var that = this;
 
+    oModel.read("/Product", {
+        success: function (oData) {
+            // Use correct path to category name
+            var fruits = oData.results.filter(item => item.category_name === "Fruit");
+            var vegetables = oData.results.filter(item => item.category_name === "Vegetable");
+
+            var fruitModel = new sap.ui.model.json.JSONModel({ results: fruits });
+            var vegetableModel = new sap.ui.model.json.JSONModel({ results: vegetables });
+
+            that.getView().setModel(fruitModel, "fruitModel");
+            that.getView().setModel(vegetableModel, "vegetableModel");
         },
-        onAfterRendering: function () {
-            // Apply filters after rendering
-            var fruitFilter = new Filter("category/name", "EQ", "Fruit");
-            var vegetableFilter = new Filter("category/name", "EQ", "Vegetable");
-    
-            var fruitList = this.getView().byId("fruitList");
-            var vegetableList = this.getView().byId("vegetableList");
-    
-            if (fruitList && fruitList.getBinding("items")) {
-                fruitList.getBinding("items").filter([fruitFilter]);
-            }
-            if (vegetableList && vegetableList.getBinding("items")) {
-                vegetableList.getBinding("items").filter([vegetableFilter]);
-            }
+        error: function (err) {
+            console.error("Failed to load products", err);
+        }
+    });
+
+    var oEventBus = sap.ui.getCore().getEventBus();
+    oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+},
+onLanguageChange: function (oEvent) {
+    const selectedLang = oEvent.getSource().getSelectedKey();
+    console.log(selectedLang);
+
+    // Set new i18n model
+    const i18nModel = new sap.ui.model.resource.ResourceModel({
+        bundleName: "project.i18n.i18n",
+        bundleLocale: selectedLang
+    });
+    this.getView().setModel(i18nModel, "i18n");
+
+    const oModel = this.getOwnerComponent().getModel(); // OData V4 model
+    const that = this;
+
+    // Read localized product texts
+    oModel.read("/ProductTexts", {
+        
+        success: function (oData) {
+          console.log(oData);
+            const fruits = oData.results.filter(item => item.category_name === "Obst");
+            const vegetables = oData.results.filter(item => item.category_name === "Gemüse");
+
+            const fruitModel = new sap.ui.model.json.JSONModel({ results: fruits });
+            const vegetableModel = new sap.ui.model.json.JSONModel({ results: vegetables });
+
+            that.getView().setModel(fruitModel, "fruitModel");
+            that.getView().setModel(vegetableModel, "vegetableModel");
         },
+        error: function (err) {
+            console.error("Failed to load localized product texts", err);
+        }
+    });
+
+    // Optional: store language in localStorage
+    localStorage.setItem("selectedLanguage", selectedLang);
+},
+
+
         onFruitsPress: function () {
           var oFruitList = this.byId("fruitList");
           if (oFruitList) {

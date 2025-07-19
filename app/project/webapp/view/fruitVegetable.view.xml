@@ -17,40 +17,40 @@
                 
                     <VBox class="mainContainer">
                         <!-- Fruits Section -->
-                        <HBox id="fruitList" wrap="Wrap" class="HSection" justifyContent="Start" items="{/Product}">
+                        <HBox id="fruitList" wrap="Wrap" class="HSection" justifyContent="Start" items="{fruitModel>/results}">
                             <items>
                                 <VBox>
                                     <VBox class="itemCard">
-                                        <Image src="{image}" width="100%" />
+                                        <Image src="{fruitModel>image}" width="100%" />
                                     </VBox>
                                     <VBox class="itemText">
-                                        <Text text="{name}" class="itemName" />
-                                        <Text text="{quantity}" class="itemWeight" />
-                                        <Text text="₹{price}" class="itemPrice" />
-                                        <Text text="{stock}" visible="false" />
+                                        <Text text="{fruitModel>name}" class="itemName" />
+                                        <Text text="{fruitModel>quantity}" class="itemWeight" />
+                                        <Text text="₹{fruitModel>price}" class="itemPrice" />
+                                        <Text text="{fruitModel>stock}" visible="false" />
                                         <Button text="{i18n>addToCart}" type="Emphasized" press="onAddToCart" class="addtocartButton"/>
                                     </VBox>
                                 </VBox>
                             </items>
                         </HBox>
 
-                        <!-- Vegetables Section -->
-                        <HBox id="vegetableList" wrap="Wrap" class="HSection" justifyContent="Start" items="{/Product}">
+                        <HBox id="vegetableList" wrap="Wrap" class="HSection" justifyContent="Start" items="{vegetableModel>/results}">
                             <items>
                                 <VBox>
                                     <VBox class="itemCard">
-                                        <Image src="{image}" width="100%" />
+                                        <Image src="{vegetableModel>image}" width="100%" />
                                     </VBox>
                                     <VBox class="itemText">
-                                        <Text text="{name}" class="itemName" />
-                                        <Text text="{quantity}" class="itemWeight" />
-                                        <Text text="₹{price}" class="itemPrice" />
-                                        <Text text="{stock}" visible="false" />
-                                        <Button text="Add to Cart" press="onAddToCart" type="Emphasized" class="addtocartButton"/>
+                                        <Text text="{vegetableModel>name}" class="itemName" />
+                                        <Text text="{vegetableModel>quantity}" class="itemWeight" />
+                                        <Text text="₹{vegetableModel>price}" class="itemPrice" />
+                                        <Text text="{vegetableModel>stock}" visible="false" />
+                                        <Button text="{i18n>addToCart}" type="Emphasized" press="onAddToCart" class="addtocartButton"/>
                                     </VBox>
                                 </VBox>
                             </items>
                         </HBox>
+
                     </VBox>
                
             </HBox>

@@ -1,4 +1,5 @@
 namespace ecommerce;
+using {} from '@sap/cds/common';
 
 entity Customer {
     key id         : UUID;
@@ -11,20 +12,36 @@ entity Customer {
 }
 
 entity Category {
-    id         : UUID;
-    key name       : String(100);
-    description    : String(255);
+  id         : UUID;
+  key name            : String;
+  description     : String;
+}
+
+entity CategoryText {
+  ID          : UUID;
+  key locale      : String;
+  key name            : String;
 }
 
 entity Product {
-    key id         : UUID;
-    name           : String;
-    price          : Integer;
-    quantity        : String;
-    stock          : Integer;
-    category       : Association to Category;
-    image          : String;
+  key ID          : UUID;
+  name            : String;
+  quantity        : String;
+  image           : String;
+  price           : Integer;
+  stock           : Integer;
+  category        : Association to Category;
 }
+
+entity ProductText {
+  key ID          : UUID;
+  key locale      : String;
+  name            : String;
+  quantity        : String;
+  image           : String;
+  category        : Association to CategoryText
+}
+
 
 entity Order {
     key id         : UUID;
