@@ -2,3 +2,103 @@ ID,locale,name,quantity,image,category_name
 d2081e75-728f-46c8-953b-ace972219571,de,Bananen,1kg,https://cdn.zeptonow.com/production/tr:w-1280%2Car-3000-3000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/b9dfa7ca-7eef-46ea-b198-5c57160461fd.jpeg,Obst
 e408a381-90e9-4dec-8bb7-2e81faa14f84,de,Kartoffel,150g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-3000-3000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/ea985904-8fcb-492c-b782-a0509df2828b.jpeg,Gemüse
 f1a2b3c4-1111-2222-3333-444455556666,de,Granatapfel,500g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-3000-3000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/11cffbb5-0c0d-45f0-98d2-5ca5cf254d02.jpeg,Obst
+b3c4d5e6-3333-4444-5555-666677778888,de,Wassermelone,1 piece,https://cdn.zeptonow.com/production/tr:w-1280%2Car-3000-3000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/2216ac1a-24dd-414e-97a8-2417ef67afd4.jpeg,Obst
+c9d0e1f2-9999-0000-1111-222233334444,de,Mango,1kg,https://cdn.zeptonow.com/production/tr:w-1280%2Car-500-500%2Cpr-true%2Cf-auto%2Cq-80/inventory/product/38e844a6-ad10-44b1-86ad-0520f5d62d88-/tmp/20230302-1346011.jpeg,Obst
+d1e2f3a4-b111-2222-c333-444455556677,de,Weizenmehl,5kg,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/9f97fd13-a517-40c4-b0ff-25cf05a0ac82.jpg,Getreide
+e2f3a4b5-c222-3333-d444-555566667788,de,Reis,5kg,https://cdn.zeptonow.com/production/tr:w-1280,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/1d363e1e-13c8-4b7b-97b4-1604d350ad7d.jpeg,Getreide
+f3a4b5c6-d333-4444-e555-666677778899,de,Sonnenblumenöl,1L,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/6be3dade-6631-4414-bf89-95c65296f59b.jpeg,Grundnahrungsmittel
+g4b5c6d7-e444-5555-f666-777788889900,de,Toor Dal,1kg,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/325f2f8c-b55e-4ea6-a4a1-ca9001dcd940.jpeg,Grundnahrungsmittel
+h5c6d7e8-f555-6666-a777-888899990000,de,Coca Cola,500ml,https://cdn.zeptonow.com/production/tr:w-1280%2Car-2400-2400%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/221420f0-e673-419e-9fb1-acb974557e66.jpeg,Erfrischungsgetränke
+i6d7e8f9-a666-7777-b888-999900001111,de,Pepsi,500ml,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/7fdbc15f-6f61-4a67-ae75-71dbdd2f8d74.jpeg,Erfrischungsgetränke
+j7e8f9a0-b777-8888-c999-000011112222,de,Slice Mango Saft,250ml,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1000-1000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/0066b653-68a9-4a37-9b3b-a4c18fcd54bc.jpeg,Fruchtsäfte
+k8f9a0b1-c888-9999-d000-111122223333,de,Real Orangensaft,1L,https://cdn.zeptonow.com/production/tr:w-1280%2Car-2000-2000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/1885ab78-0da6-4334-ab35-13e1fdc41dc1.jpeg,Fruchtsäfte
+l9a0b1c2-d999-0000-e111-222233334444,de,Milch,1L,https://cdn.zeptonow.com/production/tr:w-1280%2Car-2400-2400%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/7911ebc0-9010-403f-9ed9-a6fc5e080be2.jpeg,Milchprodukte & Eier
+m0b1c2d3-e000-1111-f222-333344445555,de,Eier,12 pieces,https://cdn.zeptonow.com/production/tr:w-1280%2Car-2400-2400%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/540139a7-d722-40b9-ba11-adb0068131b2.jpeg,Milchprodukte & Eier
+n1c2d3e4-f111-2222-a333-444455556666,de,Vollkornbrot,400g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/68de0f15-ba46-4a79-95ec-0e2a33ce9dcc.jpeg,Brote
+o2d3e4f5-a222-3333-b444-555566667777,de,Weißbrot,400g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/1369659e-ffa1-4dbc-b037-6b91e0b59e8f.jpg,Brote
+f77353dc-4470-4493-86e7-b09cb2bf2cfa,de,Blaubeere,200g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-3000-3000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/06de77b1-4270-497d-bdfa-b2bad9672f12.jpg,Obst
+591a1616-84ab-4e27-ab8e-3bcf2142fb02,de,Karotte,500g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-470-470%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/b62bcc84-a906-4b82-9b53-0e7ccf583993.jpeg,Gemüse
+8d396812-cb45-40f4-b146-b067d9ff339e,de,Tomate,500g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-3000-3000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/708792d1-c428-41df-bf83-277e74a5b46d.jpeg,Gemüse
+e40912c8-794a-4a57-b4e0-48e4302f638a,de,Okra,500g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-3000-3000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/06032a57-4f74-4a81-8526-ac194804eef1.jpeg,Gemüse
+1a981502-0de2-4606-90e4-8017f7ffe99f,de,Zwiebel,1kg,https://cdn.zeptonow.com/production/tr:w-1280%2Car-3000-3000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/cfba9ff1-4bfb-4d5f-96ca-747c8d066ede.jpeg,Gemüse
+c2d769a8-a6f4-43b2-8e95-6e518f474b1d,de,Reiskleieöl,1L,https://cdn.zeptonow.com/production/tr:w-1280,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/ce7ec0e1-437e-4795-80a4-7027d983f5a7.jpeg,Grundnahrungsmittel
+98b1e00d-c189-45c4-a4c3-a8f992e38f37,de,Mungbohnen,1kg,https://cdn.zeptonow.com/production/tr:w-1280,ar-2400-2400,pr-true,f-auto,q-80/cms/product_variant/e3b2e50b-b750-4cc5-85fb-6d9db658bf8c.jpeg,Grundnahrungsmittel
+463b170a-3386-448b-b826-f703c84f9b32,de,Erdnuss,500g,https://cdn.zeptonow.com/production/tr:w-1280,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/781634fd-e54e-40d0-86b8-0c3b575eb48b.png,Grundnahrungsmittel
+622f3343-b70e-4c16-b709-05f8cf10ae15,de,Idli Grieß,1kg,https://cdn.zeptonow.com/production/tr:w-1280,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/44938e37-cf97-4908-bbf3-21a972479969.jpeg,Getreide
+24719688-4c58-49fe-855f-047b22ad9848,de,Maida Mehl,1kg,https://cdn.zeptonow.com/production/tr:w-1280,ar-2000-2000,pr-true,f-auto,q-80/cms/product_variant/2f8daef3-6fac-4449-be27-da086faa92b1.jpeg,Getreide
+4a117e98-cb94-4287-b4a9-3d009094c95c,de,Pillsbury Vollkornmehl,5kg,https://cdn.zeptonow.com/production/tr:w-1280,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/d273138c-cf6d-498a-998b-186d94a9542a.jpeg,Getreide
+b1c9c3d2-4d3e-4c2f-9e3e-1a2b3c4d5e6f,de,Brooke Bond Red Label,500g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/df38adbb-d8a1-437d-b01d-f80dbb76169f.jpeg,Tee
+a2d4e6f8-7b9c-4d1e-8f2a-3b4c5d6e7f8a,de,Café Niloufer,1kg,https://cdn.zeptonow.com/production/tr:w-1280%2Car-500-500%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/c9ab7211-83b5-4a0c-a882-be614cb7b1ee.jpg,Tee
+c3e5f7a9-8b0d-4e2f-9f3b-4c5d6e7f8a9b,de,3 Rosen,225g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/4207522f-acb1-4fe1-8be0-f3ac74871084.jpeg,Tee
+d4f6a8b0-9c1e-4f3a-8b4c-5d6e7f8a9b0c,de,Chakra Gold,500g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/3fa5a5bd-fc2a-451e-b561-f962e260c47e.jpeg,Tee
+e5a7b9c1-0d2f-4a3b-9c5d-6e7f8a9b0c1d,de,Taj,250g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-2400-2400%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/79e34732-3a5a-4a54-8c0d-19d617261f79.jpeg,Tee
+f6a8b0c1-1d2e-4f3a-9b5c-6d7e8f9a0b1c,de,Bru Instant,100g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-2400-2400%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/889f0b17-081c-4e98-b937-03a294ebbad3.jpeg,Kaffee
+a7b9c1d2-2e3f-4a5b-8c6d-7e8f9a0b1c2d,de,Nescafé Stark,190g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1000-1000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/d7490409-aa77-4bba-b6b5-0f0228fb5f6b.jpeg,Kaffee
+b8c0d2e3-3f4a-5b6c-9d7e-8f9a0b1c2d3e,de,Country Bean Karamell,50g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1080-1080%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/da793764-694c-420b-9d22-829871e4520b.jpg,Kaffee
+c9d1e3f4-4a5b-6c7d-8e9f-0a1b2c3d4e5f,de,Tata Grand,50g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/d4357846-d914-4b24-8d29-8055b4641f39.jpeg,Kaffee
+d0e2f4a5-5b6c-7d8e-9f0a-1b2c3d4e5f6a,de,Continental Xtra,150g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-2000-2392%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/317f5f99-c095-4714-ad09-0413641becaf.jpeg,Kaffee
+f1a2b3c4-5d6e-7f8a-9b0c-1d2e3f4a5b6c,de,Appy Fizz,500ml,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/616431d6-d577-4e8f-90f0-fb1a2d1bedc8.jpeg,Erfrischungsgetränke
+a2b3c4d5-6e7f-8a9b-0c1d-2e3f4a5b6c7d,de,Mountain Dew,500ml,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1000-1000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/c48f86ee-18d9-418b-91d3-66bc0617ce02.jpeg,Erfrischungsgetränke
+b3c4d5e6-7f8a-9b0c-1d2e-3f4a5b6c7d8e,de,7UP,500ml,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1080-1080%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/775fd60e-7e44-4b8f-8c4e-77baa99853e6.jpeg,Erfrischungsgetränke
+c4d5e6f7-8a9b-0c1d-2e3f-4a5b6c7d8e9f,de,Sprite,500ml,https://cdn.zeptonow.com/production/tr:w-1280%2Car-2400-2400%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/2fb0b791-ee38-4341-9494-1dfe361acb5f.jpg,Erfrischungsgetränke
+d5e6f7a8-9b0c-1d2e-3f4a-5b6c7d8e9f0a,de,B Natural Litschi,1L,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/a7e02531-90eb-44b1-9d35-c2b4f1f192d8.jpeg,Fruchtsäfte
+e6f7a8b9-0c1d-2e3f-4a5b-6c7d8e9f0a1b,de,Frooti,1L,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/21622b2b-8913-4405-ab3e-969c5dd50bf7.jpeg,Fruchtsäfte
+f7a8b9c0-1d2e-3f4a-5b6c-7d8e9f0a1b2c,de,Minute Maid Fruchtig,1L,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/c490eadb-4333-411b-8d9e-c02c33c2ce49.jpeg,Fruchtsäfte
+g1a2b3c4-5d6e-7f8a-9b0c-1d2e3f4a5b6c,de,MTR Uttapam Mischung,500g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-2400-2400%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/3084591b-93b8-4e49-95ea-833786f4af4c.jpg,Frühstück Instant
+h2b3c4d5-6e7f-8a9b-0c1d-2e3f4a5b6c7d,de,Tortilla Wraps,6 pcs,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1000-1000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/c505ccf0-dbc3-441a-8933-38b759a7c22c.jpeg,Frühstück Instant
+i3c4d5e6-7f8a-9b0c-1d2e-3f4a5b6c7d8e,de,iD Teig,1kg,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1500-1500%2Cpr-true%2Cf-auto%2Cq-80/inventory/product/4700b4fe-2b4d-4c5f-a84d-cb908c7d6fb6-852.jpg,Frühstück Instant
+j4d5e6f7-8a9b-0c1d-2e3f-4a5b6c7d8e9f,de,MTR Idli Mischung,500g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1021-1021%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/30803e2d-718b-4f18-a84f-52154fdadf4d.jpeg,Frühstück Instant
+k5e6f7a8-9b0c-1d2e-3f4a-5b6c7d8e9f0a,de,Maggi Pazzta,70g,https://cdn.zeptonow.com/.../f0e9f37f-4900-4a6b-b063-f36b35638dc4.jpeg,Frühstück Instant
+l6f7a8b9-0c1d-2e3f-4a5b-6c7d8e9f0a1b,de,YiPPee! Magie,70g,https://cdn.zeptonow.com/.../db5cb46f-1ab6-4eaa-a1d4-dcd28bdf87ea.jpeg,Instant-Nudeln
+m7a8b9c0-1d2e-3f4a-5b6c-7d8e9f0a1b2c,de,Koreanischer Samyang,140g,https://cdn.zeptonow.com/.../d3914337-48dc-410c-aad7-995a68892637.jpeg,Instant-Nudeln
+n8b9c0d1-2e3f-4a5b-6c7d-8e9f0a1b2c3d,de,Maggi Masala,70g,https://cdn.zeptonow.com/.../5e44c2c3-8fa7-460f-8b1d-3fec37b77c1b.jpeg,Instant-Nudeln
+o9c0d1e2-3f4a-5b6c-7d8e-9f0a1b2c3d4e,de,Bambino Vermicelli,200g,https://cdn.zeptonow.com/.../6da8bec9-c58c-4f5d-97ee-a8792186cc4f.jpeg,Instant-Nudeln
+p0d1e2f3-4a5b-6c7d-8e9f-0a1b2c3d4e5f,de,Chings Veg Hakka,150g,https://cdn.zeptonow.com/.../7a689f8e-756c-4ba5-9d3c-6352bfce4a73.jpeg,Instant-Nudeln
+q1a2b3c4-5d6e-7f8a-9b0c-1d2e3f4a5b6c,de,Dairy Milk Silk,60g,https://cdn.zeptonow.com/.../a5408655-88d9-47c2-8733-543c5de6ea29.jpeg,Schokolade & Süßigkeiten
+r2b3c4d5-6e7f-8a9b-0c1d-2e3f4a5b6c7d,de,Munch,25g,https://cdn.zeptonow.com/.../e7050b07-50d2-4628-9008-e17d4b7320c8.jpeg,Schokolade & Süßigkeiten
+s3c4d5e6-7f8a-9b0c-1d2e-3f4a5b6c7d8e,de,Nestlé Milkybar,30g,https://cdn.zeptonow.com/.../833f4fbd-b2fd-4d43-95ce-1345650854ec.jpeg,Schokolade & Süßigkeiten
+t4d5e6f7-8a9b-0c1d-2e3f-4a5b6c7d8e9f,de,Kitkat Minis,36g,https://cdn.zeptonow.com/.../3b359cde-d158-4466-99d0-6a8fe40a69a3.jpeg,Schokolade & Süßigkeiten
+u5e6f7a8-9b0c-1d2e-3f4a-5b6c7d8e9f0a,de,Toblerone,100g,https://cdn.zeptonow.com/.../5c998381-fe2c-4f13-9421-d18df9286019.jpeg,Schokolade & Süßigkeiten
+v6f7a8b9-0c1d-2e3f-4a5b-6c7d8e9f0a1b,de,Brownie Fudge,500ml,https://cdn.zeptonow.com/.../1e600cd5-6475-48d1-b5e7-bfa89cfbbb7c.jpeg,Eiscreme
+w7a8b9c0-1d2e-3f4a-5b6c-7d8e9f0a1b2c,de,Amul Butterscotch,500ml,https://cdn.zeptonow.com/.../45224eee-6755-4b5a-9398-570c420ae007.jpeg,Eiscreme
+x8b9c0d1-2e3f-4a5b-6c7d-8e9f0a1b2c3d,de,Hocco Haselnuss,500ml,https://cdn.zeptonow.com/.../abe51be0-c7c2-4c68-afa4-2bfdf3a04040.jpg,Eiscreme
+y9c0d1e2-3f4a-5b6c-7d8e-9f0a1b2c3d4e,de,Baskin Robbins,500ml,https://cdn.zeptonow.com/.../c1caead9-b359-42e1-b838-7fcd5851940a.jpg,Eiscreme
+z0d1e2f3-4a5b-6c7d-8e9f-0a1b2c3d4e5f,de,Magnum Schokolade,80ml,https://cdn.zeptonow.com/.../da3634a8-5789-4a7a-a827-91d4dfd21d00.jpeg,Eiscreme
+a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d,de,Grüne Chili,100g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-500-500%2Cpr-true%2Cf-auto%2Cq-80/inventory/product/ab853b33-d6c8-44fd-96d7-85679657bfc4-c6c81014-d603-45f1-a5bb-f2b492ddbe0a.jpeg,Gemüse
+b2c3d4e5-6f7a-8b9c-0d1e-2f3a4b5c6d7e,de,Brokkoli,1 pc,https://cdn.zeptonow.com/production/tr:w-1280%2Car-3000-3000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/1528830b-2968-4712-8a0f-c59a0045f0aa.jpeg,Gemüse
+c3d4e5f6-7a8b-9c0d-1e2f-3a4b5c6d7e8f,de,Ingwer,250g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-3000-3000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/a44b5819-d6a4-4b02-90a3-2efd658fe2d9.jpeg,Gemüse
+d4e5f6a7-8b9c-0d1e-2f3a-4b5c6d7e8f9g,de,Minze,1 bunch,https://cdn.zeptonow.com/production/tr:w-1280%2Car-3000-3000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/1391608d-d802-4d6b-8e4a-ee9415a650fc.jpeg,Gemüse
+
+
+
+
+d2081e75-728f-46c8-953b-ace972219571,fr,Bananes,1kg,https://cdn.zeptonow.com/production/tr:w-1280,ar-3000-3000,pr-true,f-auto,q-80/cms/product_variant/b9dfa7ca-7eef-46ea-b198-5c57160461fd.jpeg,Fruits
+e408a381-90e9-4dec-8bb7-2e81faa14f84,fr,Pomme de terre,150g,https://cdn.zeptonow.com/production/tr:w-1280,ar-3000-3000,pr-true,f-auto,q-80/cms/product_variant/ea985904-8fcb-492c-b782-a0509df2828b.jpeg,Légumes
+f1a2b3c4-1111-2222-3333-444455556666,fr,Grenade,500g,https://cdn.zeptonow.com/production/tr:w-1280,ar-3000-3000,pr-true,f-auto,q-80/cms/product_variant/11cffbb5-0c0d-45f0-98d2-5ca5cf254d02.jpeg,Fruits
+b3c4d5e6-3333-4444-5555-666677778888,fr,Pastèque,1 piece,https://cdn.zeptonow.com/production/tr:w-1280,ar-3000-3000,pr-true,f-auto,q-80/cms/product_variant/2216ac1a-24dd-414e-97a8-2417ef67afd4.jpeg,Fruits
+c9d0e1f2-9999-0000-1111-222233334444,fr,Mangue,1kg,https://cdn.zeptonow.com/production/tr:w-1280,ar-500-500,pr-true,f-auto,q-80/inventory/product/38e844a6-ad10-44b1-86ad-0520f5d62d88-/tmp/20230302-1346011.jpeg,Fruits
+d1e2f3a4-b111-2222-c333-444455556677,fr,Farine de blé,5kg,https://cdn.zeptonow.com/production/tr:w-1280,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/9f97fd13-a517-40c4-b0ff-25cf05a0ac82.jpg,Céréales
+e2f3a4b5-c222-3333-d444-555566667788,fr,Riz,5kg,https://cdn.zeptonow.com/production/tr:w-1280,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/1d363e1e-13c8-4b7b-97b4-1604d350ad7d.jpeg,Céréales
+f3a4b5c6-d333-4444-e555-666677778899,fr,Huile de tournesol,1L,https://cdn.zeptonow.com/production/tr:w-1280,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/6be3dade-6631-4414-bf89-95c65296f59b.jpeg,Produits de base
+g4b5c6d7-e444-5555-f666-777788889900,fr,Toor Dal,1kg,https://cdn.zeptonow.com/production/tr:w-1280,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/325f2f8c-b55e-4ea6-a4a1-ca9001dcd940.jpeg,Produits de base
+h5c6d7e8-f555-6666-a777-888899990000,fr,Coca Cola,500ml,https://cdn.zeptonow.com/production/tr:w-1280,ar-2400-2400,pr-true,f-auto,q-80/cms/product_variant/221420f0-e673-419e-9fb1-acb974557e66.jpeg,Boissons rafraîchissantes
+i6d7e8f9-a666-7777-b888-999900001111,fr,Pepsi,500ml,https://cdn.zeptonow.com/production/tr:w-1280,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/7fdbc15f-6f61-4a67-ae75-71dbdd2f8d74.jpeg,Boissons rafraîchissantes
+j7e8f9a0-b777-8888-c999-000011112222,fr,Jus de mangue Slice,250ml,https://cdn.zeptonow.com/production/tr:w-1280,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/0066b653-68a9-4a37-9b3b-a4c18fcd54bc.jpeg,Jus de fruits
+k8f9a0b1-c888-9999-d000-111122223333,fr,Jus d'orange Real,1L,https://cdn.zeptonow.com/production/tr:w-1280,ar-2000-2000,pr-true,f-auto,q-80/cms/product_variant/1885ab78-0da6-4334-ab35-13e1fdc41dc1.jpeg,Jus de fruits
+l9a0b1c2-d999-0000-e111-222233334444,fr,Lait,1L,https://cdn.zeptonow.com/production/tr:w-1280,ar-2400-2400,pr-true,f-auto,q-80/cms/product_variant/7911ebc0-9010-403f-9ed9-a6fc5e080be2.jpeg,Produits laitiers & œufs
+m0b1c2d3-e000-1111-f222-333344445555,fr,Œufs,12 pieces,https://cdn.zeptonow.com/production/tr:w-1280,ar-2400-2400,pr-true,f-auto,q-80/cms/product_variant/540139a7-d722-40b9-ba11-adb0068131b2.jpeg,Produits laitiers & œufs
+n1c2d3e4-f111-2222-a333-444455556666,fr,Pain complet,400g,https://cdn.zeptonow.com/production/tr:w-1280,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/68de0f15-ba46-4a79-95ec-0e2a33ce9dcc.jpeg,Pains
+o2d3e4f5-a222-3333-b444-555566667777,fr,Pain blanc,400g,https://cdn.zeptonow.com/production/tr:w-1280,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/1369659e-ffa1-4dbc-b037-6b91e0b59e8f.jpg,Pains
+f77353dc-4470-4493-86e7-b09cb2bf2cfa,fr,Myrtille,200g,https://cdn.zeptonow.com/production/tr:w-1280,ar-3000-3000,pr-true,f-auto,q-80/cms/product_variant/06de77b1-4270-497d-bdfa-b2bad9672f12.jpg,Fruits
+d0e2f4a5-5b6c-7d8e-9f0a-1b2c3d4e5f6a,fr,Continental Xtra,150g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-2000-2392%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/317f5f99-c095-4714-ad09-0413641becaf.jpeg,Café
+f1a2b3c4-5d6e-7f8a-9b0c-1d2e3f4a5b6c,fr,Appy Fizz,500ml,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/616431d6-d577-4e8f-90f0-fb1a2d1bedc8.jpeg,Boissons rafraîchissantes
+a2b3c4d5-6e7f-8a9b-0c1d-2e3f4a5b6c7d,fr,Mountain Dew,500ml,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1000-1000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/c48f86ee-18d9-418b-91d3-66bc0617ce02.jpeg,Boissons rafraîchissantes
+b3c4d5e6-7f8a-9b0c-1d2e-3f4a5b6c7d8e,fr,7UP,500ml,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1080-1080%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/775fd60e-7e44-4b8f-8c4e-77baa99853e6.jpeg,Boissons rafraîchissantes
+c4d5e6f7-8a9b-0c1d-2e3f-4a5b6c7d8e9f,fr,Sprite,500ml,https://cdn.zeptonow.com/production/tr:w-1280%2Car-2400-2400%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/2fb0b791-ee38-4341-9494-1dfe361acb5f.jpg,Boissons rafraîchissantes
+d5e6f7a8-9b0c-1d2e-3f4a-5b6c7d8e9f0a,fr,B Natural Litchi,1L,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/a7e02531-90eb-44b1-9d35-c2b4f1f192d8.jpeg,Jus de fruits
+e6f7a8b9-0c1d-2e3f-4a5b-6c7d8e9f0a1b,fr,Frooti,1L,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/21622b2b-8913-4405-ab3e-969c5dd50bf7.jpeg,Jus de fruits
+f7a8b9c0-1d2e-3f4a-5b6c-7d8e9f0a1b2c,fr,Minute Maid Pulpy,1L,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1200-1200%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/c490eadb-4333-411b-8d9e-c02c33c2ce49.jpeg,Jus de fruits
+g1a2b3c4-5d6e-7f8a-9b0c-1d2e3f4a5b6c,fr,MTR Uttapam Mix,500g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-2400-2400%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/3084591b-93b8-4e49-95ea-833786f4af4c.jpg,Petit déjeuner instantané
+h2b3c4d5-6e7f-8a9b-0c1d-2e3f4a5b6c7d,fr,Tortilla Wraps,6 pcs,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1000-1000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/c505ccf0-dbc3-441a-8933-38b759a7c22c.jpeg,Petit déjeuner instantané
+i3c4d5e6-7f8a-9b0c-1d2e-3f4a5b6c7d8e,fr,Pâte iD,1kg,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1500-1500%2Cpr-true%2Cf-auto%2Cq-80/inventory/product/4700b4fe-2b4d-4c5f-a84d-cb908c7d6fb6-852.jpg,Petit déjeuner instantané
+j4d5e6f7-8a9b-0c1d-2e3f-4a5b6c7d8e9f,fr,MTR Idli Mix,500g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-1021-1021%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/30803e2d-718b-4f18-a84f-52154fdadf4d.jpeg,Petit déjeuner instantané
