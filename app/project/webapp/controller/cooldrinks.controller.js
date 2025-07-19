@@ -9,30 +9,59 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("project.controller.cooldrinks", {
-        onInit: function () {
-            
-            jQuery.sap.includeStyleSheet("project/css/style.css");
+      onInit: function () {
+    jQuery.sap.includeStyleSheet("project/css/style.css");
 
-            var oModel = this.getOwnerComponent().getModel();
-            this.getView().setModel(oModel);
-            this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
-            var oEventBus = sap.ui.getCore().getEventBus();
-            oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+    const selectedLang = localStorage.getItem("selectedLanguage") || "en";
+    this._loadProductData(selectedLang);
 
-            var softDrinksFilter = new Filter("category/name", "EQ", "Soft Drinks");
-            var fruitJuicesFilter = new Filter("category/name", "EQ", "Fruit Juices");
+    const oModel = this.getOwnerComponent().getModel();
+    this.getView().setModel(oModel);
+    this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
 
-            var softDrinksList = this.getView().byId("softDrinksList");
-            var fruitJuicesList = this.getView().byId("fruitJuicesList");
+    const oEventBus = sap.ui.getCore().getEventBus();
+    oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+},
 
-            if (softDrinksList?.getBinding("items")) {
-                softDrinksList.getBinding("items").filter([softDrinksFilter]);
-            }
+onLanguageChange: function (oEvent) {
+    const selectedLang = oEvent.getSource().getSelectedKey();
+    console.log("Language changed to:", selectedLang);
 
-            if (fruitJuicesList?.getBinding("items")) {
-                fruitJuicesList.getBinding("items").filter([fruitJuicesFilter]);
-            }
-        },onCartUpdated: function () {
+    const i18nModel = new sap.ui.model.resource.ResourceModel({
+        bundleName: "project.i18n.i18n",
+        bundleLocale: selectedLang
+    });
+    this.getView().setModel(i18nModel, "i18n");
+
+    localStorage.setItem("selectedLanguage", selectedLang);
+    this._loadProductData(selectedLang);
+},
+
+_loadProductData: function (lang) {
+    const oModel = this.getOwnerComponent().getModel();
+    const that = this;
+
+    const endpoint = lang === "en" ? "/Product" : "/ProductTexts";
+    const softDrinksCategory = lang === "en" ? "Soft Drinks" : "Erfrischungsgetränke";
+    const fruitJuicesCategory = lang === "en" ? "Fruit Juices" : "Fruchtsäfte";
+
+    oModel.read(endpoint, {
+        success: function (oData) {
+            const softDrinksItems = oData.results.filter(item => item.category_name === softDrinksCategory);
+            const fruitJuicesItems = oData.results.filter(item => item.category_name === fruitJuicesCategory);
+
+            const softDrinksModel = new sap.ui.model.json.JSONModel({ results: softDrinksItems });
+            const fruitJuicesModel = new sap.ui.model.json.JSONModel({ results: fruitJuicesItems });
+
+            that.getView().setModel(softDrinksModel, "softDrinksModel");
+            that.getView().setModel(fruitJuicesModel, "fruitJuicesModel");
+        },
+        error: function (err) {
+            console.error("Failed to load product data", err);
+        }
+    });
+}, 
+      onCartUpdated: function () {
               this.updateCartDisplay(this.getView());
           },
         onMenuPress: function (oEvent) {

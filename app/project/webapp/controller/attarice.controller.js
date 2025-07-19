@@ -10,30 +10,61 @@ sap.ui.define([
 
   return Controller.extend("project.controller.attarice", {
     onInit: function () {
+    jQuery.sap.includeStyleSheet("project/css/style.css");
 
-      jQuery.sap.includeStyleSheet("project/css/style.css");
-      var oEventBus = sap.ui.getCore().getEventBus();
-      oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+    const selectedLang = localStorage.getItem("selectedLanguage") || "en";
+    this._loadProductData(selectedLang);
 
-      var oModel = this.getOwnerComponent().getModel();
-      this.getView().setModel(oModel);
-      
-      this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
+    const oModel = this.getOwnerComponent().getModel();
+    this.getView().setModel(oModel);
+    this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
 
-      var grainsFilter = new Filter("category/name", "EQ", "Grains");
-      var essentialsFilter = new Filter("category/name", "EQ", "Essentials");
+    const oEventBus = sap.ui.getCore().getEventBus();
+    oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+},
 
-      var grainsList = this.getView().byId("grainsList");
-      var essentialsList = this.getView().byId("essentialsList");
+onLanguageChange: function (oEvent) {
+    const selectedLang = oEvent.getSource().getSelectedKey();
+    console.log("Language changed to:", selectedLang);
 
-      if (grainsList?.getBinding("items")) {
-        grainsList.getBinding("items").filter([grainsFilter]);
-      }
+    // Set new i18n model
+    const i18nModel = new sap.ui.model.resource.ResourceModel({
+        bundleName: "project.i18n.i18n",
+        bundleLocale: selectedLang
+    });
+    this.getView().setModel(i18nModel, "i18n");
 
-      if (essentialsList?.getBinding("items")) {
-        essentialsList.getBinding("items").filter([essentialsFilter]);
-      }
-    },
+    // Store selected language
+    localStorage.setItem("selectedLanguage", selectedLang);
+
+    // Reload product data based on selected language
+    this._loadProductData(selectedLang);
+},
+
+_loadProductData: function (lang) {
+    const oModel = this.getOwnerComponent().getModel();
+    const that = this;
+
+    const endpoint = lang === "en" ? "/Product" : "/ProductTexts";
+    const grainsCategory = lang === "en" ? "Grains" : "Getreide";
+    const essentialsCategory = lang === "en" ? "Essentials" : "Grundnahrungsmittel";
+
+    oModel.read(endpoint, {
+        success: function (oData) {
+            const grains = oData.results.filter(item => item.category_name === grainsCategory);
+            const essentials = oData.results.filter(item => item.category_name === essentialsCategory);
+
+            const grainsModel = new sap.ui.model.json.JSONModel({ results: grains });
+            const essentialsModel = new sap.ui.model.json.JSONModel({ results: essentials });
+
+            that.getView().setModel(grainsModel, "grainsModel");
+            that.getView().setModel(essentialsModel, "essentialsModel");
+        },
+        error: function (err) {
+            console.error("Failed to load product data", err);
+        }
+    });
+},
     onMenuPress: function (oEvent) {
       if (!this._oMenuSheet) {
         this._oMenuSheet = new sap.m.ActionSheet({

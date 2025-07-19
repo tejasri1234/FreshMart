@@ -1,4 +1,4 @@
-ID,locale,name,quantity,image,category_name
+ID,locale,name,quantity,image,category_name,stock,price
 d2081e75-728f-46c8-953b-ace972219571,de,Bananen,1kg,https://cdn.zeptonow.com/production/tr:w-1280%2Car-3000-3000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/b9dfa7ca-7eef-46ea-b198-5c57160461fd.jpeg,Obst
 e408a381-90e9-4dec-8bb7-2e81faa14f84,de,Kartoffel,150g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-3000-3000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/ea985904-8fcb-492c-b782-a0509df2828b.jpeg,Gemüse
 f1a2b3c4-1111-2222-3333-444455556666,de,Granatapfel,500g,https://cdn.zeptonow.com/production/tr:w-1280%2Car-3000-3000%2Cpr-true%2Cf-auto%2Cq-80/cms/product_variant/11cffbb5-0c0d-45f0-98d2-5ca5cf254d02.jpeg,Obst

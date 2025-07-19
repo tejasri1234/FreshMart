@@ -10,29 +10,61 @@ sap.ui.define([
 
     return Controller.extend("project.controller.packed", {
         onInit: function () {
+    jQuery.sap.includeStyleSheet("project/css/style.css");
 
-            jQuery.sap.includeStyleSheet("project/css/style.css");
+    const selectedLang = localStorage.getItem("selectedLanguage") || "en";
+    this._loadProductData(selectedLang);
 
-            var oModel = this.getOwnerComponent().getModel();
-            this.getView().setModel(oModel);
-            this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
-            var oEventBus = sap.ui.getCore().getEventBus();
-      oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+    const oModel = this.getOwnerComponent().getModel();
+    this.getView().setModel(oModel);
+    this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
 
-            var breakfastFilter = new Filter("category/name", "EQ", "Breakfast Instant");
-            var noodlesFilter = new Filter("category/name", "EQ", "Instant Noodles");
+    const oEventBus = sap.ui.getCore().getEventBus();
+    oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+},
 
-            var breakfastList = this.getView().byId("breakfastList");
-            var noodlesList = this.getView().byId("noodlesList");
+onLanguageChange: function (oEvent) {
+    const selectedLang = oEvent.getSource().getSelectedKey();
+    console.log("Language changed to:", selectedLang);
 
-            if (breakfastList?.getBinding("items")) {
-                breakfastList.getBinding("items").filter([breakfastFilter]);
-            }
+    // Set new i18n model
+    const i18nModel = new sap.ui.model.resource.ResourceModel({
+        bundleName: "project.i18n.i18n",
+        bundleLocale: selectedLang
+    });
+    this.getView().setModel(i18nModel, "i18n");
 
-            if (noodlesList?.getBinding("items")) {
-                noodlesList.getBinding("items").filter([noodlesFilter]);
-            }
+    // Store selected language
+    localStorage.setItem("selectedLanguage", selectedLang);
+
+    // Reload product data based on selected language
+    this._loadProductData(selectedLang);
+},
+
+_loadProductData: function (lang) {
+    const oModel = this.getOwnerComponent().getModel();
+    const that = this;
+
+    const endpoint = lang === "en" ? "/Product" : "/ProductTexts";
+    const breakfastCategory = lang === "en" ? "Breakfast Instant" : "Frühstück Instant";
+    const noodlesCategory = lang === "en" ? "Instant Noodles" : "Instantnudeln";
+
+    oModel.read(endpoint, {
+        success: function (oData) {
+            const breakfastItems = oData.results.filter(item => item.category_name === breakfastCategory);
+            const noodlesItems = oData.results.filter(item => item.category_name === noodlesCategory);
+
+            const breakfastModel = new sap.ui.model.json.JSONModel({ results: breakfastItems });
+            const noodlesModel = new sap.ui.model.json.JSONModel({ results: noodlesItems });
+
+            that.getView().setModel(breakfastModel, "breakfastModel");
+            that.getView().setModel(noodlesModel, "noodlesModel");
         },
+        error: function (err) {
+            console.error("Failed to load product data", err);
+        }
+    });
+},
         onCartUpdated: function () {
               this.updateCartDisplay(this.getView());
           },

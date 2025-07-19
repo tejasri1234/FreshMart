@@ -10,30 +10,61 @@ sap.ui.define([
 
     return Controller.extend("project.controller.sweet", {
         onInit: function () {
+    jQuery.sap.includeStyleSheet("project/css/style.css");
 
+    const selectedLang = localStorage.getItem("selectedLanguage") || "en";
+    this._loadProductData(selectedLang);
 
-            jQuery.sap.includeStyleSheet("project/css/style.css");
+    const oModel = this.getOwnerComponent().getModel();
+    this.getView().setModel(oModel);
+    this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
 
-            var oModel = this.getOwnerComponent().getModel();
-            this.getView().setModel(oModel);
-            this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
-            var oEventBus = sap.ui.getCore().getEventBus();
-      oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+    const oEventBus = sap.ui.getCore().getEventBus();
+    oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+},
 
-            var chocolatesFilter = new Filter("category/name", "EQ", "Chocolates & Sweets");
-            var iceCreamFilter = new Filter("category/name", "EQ", "Ice Creams");
+onLanguageChange: function (oEvent) {
+    const selectedLang = oEvent.getSource().getSelectedKey();
+    console.log("Language changed to:", selectedLang);
 
-            var chocolatesList = this.getView().byId("chocolatesList");
-            var iceCreamList = this.getView().byId("iceCreamList");
+    // Set new i18n model
+    const i18nModel = new sap.ui.model.resource.ResourceModel({
+        bundleName: "project.i18n.i18n",
+        bundleLocale: selectedLang
+    });
+    this.getView().setModel(i18nModel, "i18n");
 
-            if (chocolatesList?.getBinding("items")) {
-                chocolatesList.getBinding("items").filter([chocolatesFilter]);
-            }
+    // Store selected language
+    localStorage.setItem("selectedLanguage", selectedLang);
 
-            if (iceCreamList?.getBinding("items")) {
-                iceCreamList.getBinding("items").filter([iceCreamFilter]);
-            }
+    // Reload product data based on selected language
+    this._loadProductData(selectedLang);
+},
+
+_loadProductData: function (lang) {
+    const oModel = this.getOwnerComponent().getModel();
+    const that = this;
+
+    const endpoint = lang === "en" ? "/Product" : "/ProductTexts";
+    const chocolatesCategory = lang === "en" ? "Chocolates & Sweets" : "Schokolade & Süßigkeiten";
+    const iceCreamCategory = lang === "en" ? "Ice Creams" : "Eiscremes";
+
+    oModel.read(endpoint, {
+        success: function (oData) {
+            const chocolates = oData.results.filter(item => item.category_name === chocolatesCategory);
+            const iceCreams = oData.results.filter(item => item.category_name === iceCreamCategory);
+
+            const chocolatesModel = new sap.ui.model.json.JSONModel({ results: chocolates });
+            const iceCreamModel = new sap.ui.model.json.JSONModel({ results: iceCreams });
+
+            that.getView().setModel(chocolatesModel, "chocolatesModel");
+            that.getView().setModel(iceCreamModel, "iceCreamModel");
         },
+        error: function (err) {
+            console.error("Failed to load product data", err);
+        }
+    });
+},
         onMenuPress: function (oEvent) {
           if (!this._oMenuSheet) {
             this._oMenuSheet = new sap.m.ActionSheet({

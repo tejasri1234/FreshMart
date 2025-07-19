@@ -1,256 +1,243 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel",
-    "sap/ui/model/Filter",
-    "sap/m/MessageToast",
-    "sap/m/Text",
-    "sap/m/VBox",
-    "sap/m/MessageBox"
-], function (Controller, JSONModel, Filter, MessageToast, Text, VBox,MessageBox) {
-    "use strict";
+  "sap/ui/core/mvc/Controller",
+  "sap/ui/model/json/JSONModel",
+  "sap/ui/model/Filter",
+  "sap/m/MessageToast",
+  "sap/m/Text",
+  "sap/m/VBox",
+  "sap/m/MessageBox"
+], function (Controller, JSONModel, Filter, MessageToast, Text, VBox, MessageBox) {
+  "use strict";
 
-    return Controller.extend("project.controller.fruitVegetable", {
-      onInit: function () {
-    jQuery.sap.includeStyleSheet("project/css/style.css");
+  return Controller.extend("project.controller.fruitVegetable", {
+    onInit: function () {
+      jQuery.sap.includeStyleSheet("project/css/style.css");
 
-    var oModel = this.getOwnerComponent().getModel(); // OData V4 model
-    this.getView().setModel(oModel);
-    this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
+      const selectedLang = localStorage.getItem("selectedLanguage") || "en";
+      this._loadProductData(selectedLang);
 
-    var that = this;
+      const oModel = this.getOwnerComponent().getModel();
+      this.getView().setModel(oModel);
+      this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
 
-    oModel.read("/Product", {
+      const oEventBus = sap.ui.getCore().getEventBus();
+      oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+    },
+    _loadProductData: function (lang) {
+      const oModel = this.getOwnerComponent().getModel();
+      const that = this;
+
+      const endpoint = lang === "en" ? "/Product" : "/ProductTexts";
+      const fruitCategory = lang === "en" ? "Fruit" : "Obst";
+      const vegetableCategory = lang === "en" ? "Vegetable" : "Gemüse";
+
+      oModel.read(endpoint, {
         success: function (oData) {
-            // Use correct path to category name
-            var fruits = oData.results.filter(item => item.category_name === "Fruit");
-            var vegetables = oData.results.filter(item => item.category_name === "Vegetable");
+          const fruits = oData.results.filter(item => item.category_name === fruitCategory);
+          const vegetables = oData.results.filter(item => item.category_name === vegetableCategory);
 
-            var fruitModel = new sap.ui.model.json.JSONModel({ results: fruits });
-            var vegetableModel = new sap.ui.model.json.JSONModel({ results: vegetables });
+          const fruitModel = new sap.ui.model.json.JSONModel({ results: fruits });
+          const vegetableModel = new sap.ui.model.json.JSONModel({ results: vegetables });
 
-            that.getView().setModel(fruitModel, "fruitModel");
-            that.getView().setModel(vegetableModel, "vegetableModel");
+          that.getView().setModel(fruitModel, "fruitModel");
+          that.getView().setModel(vegetableModel, "vegetableModel");
         },
         error: function (err) {
-            console.error("Failed to load products", err);
+          console.error("Failed to load product data", err);
         }
-    });
+      });
+    },
+    onLanguageChange: function (oEvent) {
+      const selectedLang = oEvent.getSource().getSelectedKey();
+      console.log("Language changed to:", selectedLang);
 
-    var oEventBus = sap.ui.getCore().getEventBus();
-    oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
-},
-onLanguageChange: function (oEvent) {
-    const selectedLang = oEvent.getSource().getSelectedKey();
-    console.log(selectedLang);
-
-    // Set new i18n model
-    const i18nModel = new sap.ui.model.resource.ResourceModel({
+      // Set new i18n model
+      const i18nModel = new sap.ui.model.resource.ResourceModel({
         bundleName: "project.i18n.i18n",
         bundleLocale: selectedLang
-    });
-    this.getView().setModel(i18nModel, "i18n");
+      });
+      this.getView().setModel(i18nModel, "i18n");
 
-    const oModel = this.getOwnerComponent().getModel(); // OData V4 model
-    const that = this;
+      // Store selected language
+      localStorage.setItem("selectedLanguage", selectedLang);
 
-    // Read localized product texts
-    oModel.read("/ProductTexts", {
-        
+      // Reload product data based on selected language
+      this._loadProductData(selectedLang);
+    },
+    onFruitsPress: function () {
+      var oFruitList = this.byId("fruitList");
+      if (oFruitList) {
+        oFruitList.getDomRef().scrollIntoView({
+          behavior: "smooth"
+
+        });
+      }
+
+
+    },
+
+
+    onVegetablesPress: function () {
+      var oVegetableList = this.byId("vegetableList");
+      if (oVegetableList) {
+        oVegetableList.getDomRef().scrollIntoView({ behavior: "smooth" });
+      }
+    },
+
+
+
+
+    onMenuPress: function (oEvent) {
+      if (!this._oMenuSheet) {
+        this._oMenuSheet = new sap.m.ActionSheet({
+          buttons: [
+            new sap.m.Button({
+              text: "My Orders",
+              icon: "sap-icon://order-status",
+              press: () => {
+                const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("Orders"); // Ensure route name matches manifest.json
+              }
+            }),
+            new sap.m.Button({
+              text: "Account",
+              icon: "sap-icon://account",
+              press: () => {
+                sap.m.MessageToast.show("Account pressed");
+              }
+            })
+          ],
+          placement: sap.m.PlacementType.Bottom
+        });
+        this.getView().addDependent(this._oMenuSheet);
+      }
+      this._oMenuSheet.openBy(oEvent.getSource());
+    },
+
+    onCartUpdated: function () {
+      this.updateCartDisplay(this.getView());
+    },
+    onProfilePress: function () {
+      this.getOwnerComponent().onProfilePress(this.getView());
+    },
+    onLoginPress: function () {
+      var oView = this.getView();
+      var oDialog = oView.byId("loginRegisterDialog");
+
+      if (!oDialog) {
+        sap.m.MessageBox.error("Dialog not open.");
+        return;
+      }
+
+      var email = oView.byId("emailInput").getValue();
+      var password = oView.byId("passwordInput").getValue();
+
+      if (!email || !password) {
+        sap.m.MessageBox.warning("Please enter both email and password.");
+        return;
+      }
+      console.log(email, password);
+
+      // 🔐 Admin credentials check
+      if (email === "admin@gmail.com" && password === "admin") {
+        var oRouter = this.getOwnerComponent().getRouter();
+        oRouter.navTo("AdminDahsboard");
+        console.log("routing");
+        return;
+      }
+
+      // 🔍 Regular user login via HANA
+      oView.getModel().read("/Customer", {
+        filters: [
+          new sap.ui.model.Filter("email", sap.ui.model.FilterOperator.EQ, email),
+          new sap.ui.model.Filter("password", sap.ui.model.FilterOperator.EQ, password)
+        ],
         success: function (oData) {
-          console.log(oData);
-            const fruits = oData.results.filter(item => item.category_name === "Obst");
-            const vegetables = oData.results.filter(item => item.category_name === "Gemüse");
+          if (oData.results && oData.results.length > 0) {
+            var user = oData.results[0];
+            var oUserModel = new sap.ui.model.json.JSONModel(user);
+            console.log(oUserModel);
 
-            const fruitModel = new sap.ui.model.json.JSONModel({ results: fruits });
-            const vegetableModel = new sap.ui.model.json.JSONModel({ results: vegetables });
-
-            that.getView().setModel(fruitModel, "fruitModel");
-            that.getView().setModel(vegetableModel, "vegetableModel");
-        },
-        error: function (err) {
-            console.error("Failed to load localized product texts", err);
+            this.getOwnerComponent().setModel(oUserModel, "userModel");
+            oDialog.close();
+            this.loadOrdersForUser();
+          } else {
+            sap.m.MessageBox.error("Invalid email or password.");
+          }
+        }.bind(this),
+        error: function () {
+          sap.m.MessageBox.error("Login failed. Please try again.");
         }
-    });
+      });
+    },
 
-    // Optional: store language in localStorage
-    localStorage.setItem("selectedLanguage", selectedLang);
-},
+    onRegister: function () {
+      this.getOwnerComponent().onRegister(this.getView());
+    },
+
+    onToggleForm: function () {
+      this.getOwnerComponent().onToggleForm(this.getView());
+    },
+
+    onForgotPasswordPress: function () {
+      this.getOwnerComponent().onForgotPasswordPress();
+    },
+
+    onToggleLoginPasswordVisibility: function () {
+      this.getOwnerComponent().onToggleLoginPasswordVisibility(this.getView());
+    },
+
+    onToggleRegisterPasswordVisibility: function () {
+      this.getOwnerComponent().onToggleRegisterPasswordVisibility(this.getView());
+    },
 
 
-        onFruitsPress: function () {
-          var oFruitList = this.byId("fruitList");
-          if (oFruitList) {
-              oFruitList.getDomRef().scrollIntoView({
-                  behavior: "smooth"
-        
-              });
-          }
-          
 
-      },
-      
-      
-      onVegetablesPress: function () {
-          var oVegetableList = this.byId("vegetableList");
-          if (oVegetableList) {
-              oVegetableList.getDomRef().scrollIntoView({ behavior: "smooth" });
-          }
-      },
-      
-      
-      
-      
-        onMenuPress: function (oEvent) {
-          if (!this._oMenuSheet) {
-            this._oMenuSheet = new sap.m.ActionSheet({
-              buttons: [
-                new sap.m.Button({
-                  text: "My Orders",
-                  icon: "sap-icon://order-status",
-                  press: () => {
-                    const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                    oRouter.navTo("Orders"); // Ensure route name matches manifest.json
-                  }
-                }),
-                new sap.m.Button({
-                  text: "Account",
-                  icon: "sap-icon://account",
-                  press: () => {
-                    sap.m.MessageToast.show("Account pressed");
-                  }
-                })
-              ],
-              placement: sap.m.PlacementType.Bottom
+    onCloseLoginDialog: function () {
+      this.getOwnerComponent().onCloseLoginDialog(this.getView());
+    },
+    onSearch: function (oEvent) {
+      var sQuery = oEvent.getParameter("query") || oEvent.getParameter("newValue");
+      var oModel = this.getView().getModel(); // ODataModel
+      var that = this;
+      var oList = this.byId("productList"); // ID of your list control
+
+      if (sQuery && sQuery.length > 0) {
+        oModel.read("/Product", {
+          success: function (oData) {
+            var filteredResults = oData.results.filter(function (item) {
+              return item.name.toLowerCase().includes(sQuery.toLowerCase());
             });
-            this.getView().addDependent(this._oMenuSheet);
+
+            that.getView().getModel("searchModel").setProperty("/results", filteredResults);
+            oList.setVisible(true); // Show list
           }
-          this._oMenuSheet.openBy(oEvent.getSource());
-        },
-        
-onCartUpdated: function () {
-      this.updateCartDisplay(this.getView());
-  },  
-        onProfilePress: function () {
-            this.getOwnerComponent().onProfilePress(this.getView());
-          },
-          onLoginPress: function () {
-            var oView = this.getView();
-            var oDialog = oView.byId("loginRegisterDialog");
-        
-            if (!oDialog) {
-                sap.m.MessageBox.error("Dialog not open.");
-                return;
-            }
-        
-            var email = oView.byId("emailInput").getValue();
-            var password = oView.byId("passwordInput").getValue();
-        
-            if (!email || !password) {
-                sap.m.MessageBox.warning("Please enter both email and password.");
-                return;
-            }
-            console.log(email,password);
-        
-            // 🔐 Admin credentials check
-            if (email === "admin@gmail.com" && password === "admin") {
-                var oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("AdminDahsboard");
-                console.log("routing");
-                return;
-            }
-        
-            // 🔍 Regular user login via HANA
-            oView.getModel().read("/Customer", {
-                filters: [
-                    new sap.ui.model.Filter("email", sap.ui.model.FilterOperator.EQ, email),
-                    new sap.ui.model.Filter("password", sap.ui.model.FilterOperator.EQ, password)
-                ],
-                success: function (oData) {
-                    if (oData.results && oData.results.length > 0) {
-                        var user = oData.results[0];
-                        var oUserModel = new sap.ui.model.json.JSONModel(user);
-                        console.log(oUserModel);
-        
-                        this.getOwnerComponent().setModel(oUserModel, "userModel");
-                        oDialog.close();
-                        this.loadOrdersForUser();
-                    } else {
-                        sap.m.MessageBox.error("Invalid email or password.");
-                    }
-                }.bind(this),
-                error: function () {
-                    sap.m.MessageBox.error("Login failed. Please try again.");
-                }
-            });
-        },
-      
-          onRegister: function () {
-            this.getOwnerComponent().onRegister(this.getView());
-          },
-      
-          onToggleForm: function () {
-            this.getOwnerComponent().onToggleForm(this.getView());
-          },
-      
-          onForgotPasswordPress: function () {
-            this.getOwnerComponent().onForgotPasswordPress();
-          },
-      
-          onToggleLoginPasswordVisibility: function () {
-            this.getOwnerComponent().onToggleLoginPasswordVisibility(this.getView());
-          },
-      
-          onToggleRegisterPasswordVisibility: function () {
-            this.getOwnerComponent().onToggleRegisterPasswordVisibility(this.getView());
-          },
-      
-          
-      
-          onCloseLoginDialog: function () {
-            this.getOwnerComponent().onCloseLoginDialog(this.getView());
-          },
-          onSearch: function (oEvent) {
-            var sQuery = oEvent.getParameter("query") || oEvent.getParameter("newValue");
-            var oModel = this.getView().getModel(); // ODataModel
-            var that = this;
-            var oList = this.byId("productList"); // ID of your list control
-        
-            if (sQuery && sQuery.length > 0) {
-                oModel.read("/Product", {
-                    success: function (oData) {
-                        var filteredResults = oData.results.filter(function (item) {
-                            return item.name.toLowerCase().includes(sQuery.toLowerCase());
-                        });
-        
-                        that.getView().getModel("searchModel").setProperty("/results", filteredResults);
-                        oList.setVisible(true); // Show list
-                    }
-                });
-            } else {
-                that.getView().getModel("searchModel").setProperty("/results", []);
-                oList.setVisible(false); // Hide list
-            }
-        },
-          onCartPress: function () {
-            this.getOwnerComponent().onCartPress(this.getView());
-          },
-      
-          onCloseCart: function () {
-            this.getOwnerComponent().onCloseCart(this.getView());
-          },
-      
-          updateCartDisplay: function () {
-            this.getOwnerComponent().updateCartDisplay(this.getView());
-          },
-      
-          onAddToCart: function (oEvent) {
-            var itemContext = oEvent.getSource().getBindingContext();
-            var itemData = itemContext.getObject();
-            this.getOwnerComponent().onAddToCart(itemData);
-          },
-      
-          onPlaceOrder: function () {
-            this.getOwnerComponent().onPlaceOrder(this.getView());
-          }
-    });
+        });
+      } else {
+        that.getView().getModel("searchModel").setProperty("/results", []);
+        oList.setVisible(false); // Hide list
+      }
+    },
+    onCartPress: function () {
+      this.getOwnerComponent().onCartPress(this.getView());
+    },
+
+    onCloseCart: function () {
+      this.getOwnerComponent().onCloseCart(this.getView());
+    },
+
+    updateCartDisplay: function () {
+      this.getOwnerComponent().updateCartDisplay(this.getView());
+    },
+
+    onAddToCart: function (oEvent) {
+      var itemContext = oEvent.getSource().getBindingContext();
+      var itemData = itemContext.getObject();
+      this.getOwnerComponent().onAddToCart(itemData);
+    },
+
+    onPlaceOrder: function () {
+      this.getOwnerComponent().onPlaceOrder(this.getView());
+    }
+  });
 });

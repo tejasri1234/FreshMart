@@ -12,17 +12,17 @@
             <!-- Product Sections -->
             <VBox class="mainContainer">
                
-                <HBox id="softDrinksList" wrap="Wrap" class="HSection" justifyContent="Start" items="{/Product}" width="86.5%">
+                <HBox id="softDrinksList" wrap="Wrap" class="HSection" justifyContent="Start" items="{softDrinksModel>/results}" width="86.5%">
                     <items>
                         <VBox>
                             <VBox class="itemCard">
-                                <Image src="{image}" width="100%" />
+                                <Image src="{oftDrinksModel>image}" width="100%" />
                             </VBox>
                             <VBox class="itemText">
-                                <Text text="{name}" class="itemName" />
-                                <Text text="{quantity}" class="itemWeight" />
-                                <Text text="₹{price}" class="itemPrice" />
-                                <Text text="{stock}" visible="false" />
+                                <Text text="{softDrinksModel>name}" class="itemName" />
+                                <Text text="{softDrinksModel>quantity}" class="itemWeight" />
+                                <Text text="₹{softDrinksModel>price}" class="itemPrice" />
+                                <Text text="{softDrinksModel>stock}" visible="false" />
                                 <Button text="Add to Cart" type="Emphasized" press="onAddToCart" class="addtocartButton"/>
                             </VBox>
                         </VBox>
@@ -30,17 +30,17 @@
                 </HBox>
 
                
-                <HBox id="fruitJuicesList" wrap="Wrap" class="HSection" justifyContent="Start" items="{/Product}" width="86.5%">
+                <HBox id="fruitJuicesList" wrap="Wrap" class="HSection" justifyContent="Start" items="{fruitJuicesModel>/results}" width="86.5%">
                     <items>
                         <VBox>
                             <VBox class="itemCard">
-                                <Image src="{image}" width="100%" />
+                                <Image src="{fruitJuicesModel>image}" width="100%" />
                             </VBox>
                             <VBox class="itemText">
-                                <Text text="{name}" class="itemName" />
-                                <Text text="{quantity}" class="itemWeight" />
-                                <Text text="₹{price}" class="itemPrice" />
-                                <Text text="{stock}" visible="false" />
+                                <Text text="{fruitJuicesModel>name}" class="itemName" />
+                                <Text text="{fruitJuicesModel>quantity}" class="itemWeight" />
+                                <Text text="₹{fruitJuicesModel>price}" class="itemPrice" />
+                                <Text text="{fruitJuicesModel>stock}" visible="false" />
                                 <Button text="Add to Cart" type="Emphasized" press="onAddToCart" class="addtocartButton"/>
                             </VBox>
                         </VBox>

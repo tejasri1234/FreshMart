@@ -11,29 +11,61 @@ sap.ui.define([
 
     return Controller.extend("project.controller.teacoffe", {
         onInit: function () {
+    jQuery.sap.includeStyleSheet("project/css/style.css");
 
-            jQuery.sap.includeStyleSheet("project/css/style.css");
+    const selectedLang = localStorage.getItem("selectedLanguage") || "en";
+    this._loadProductData(selectedLang);
 
-            var oModel = this.getOwnerComponent().getModel();
-            this.getView().setModel(oModel);
-            this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
-            var oEventBus = sap.ui.getCore().getEventBus();
-      oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+    const oModel = this.getOwnerComponent().getModel();
+    this.getView().setModel(oModel);
+    this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
 
-            var teaFilter = new Filter("category/name", "EQ", "Tea");
-            var coffeeFilter = new Filter("category/name", "EQ", "Coffee");
+    const oEventBus = sap.ui.getCore().getEventBus();
+    oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+},
 
-            var teaList = this.getView().byId("teaList");
-            var coffeeList = this.getView().byId("coffeeList");
+onLanguageChange: function (oEvent) {
+    const selectedLang = oEvent.getSource().getSelectedKey();
+    console.log("Language changed to:", selectedLang);
 
-            if (teaList?.getBinding("items")) {
-                teaList.getBinding("items").filter([teaFilter]);
-            }
+    // Set new i18n model
+    const i18nModel = new sap.ui.model.resource.ResourceModel({
+        bundleName: "project.i18n.i18n",
+        bundleLocale: selectedLang
+    });
+    this.getView().setModel(i18nModel, "i18n");
 
-            if (coffeeList?.getBinding("items")) {
-                coffeeList.getBinding("items").filter([coffeeFilter]);
-            }
+    // Store selected language
+    localStorage.setItem("selectedLanguage", selectedLang);
+
+    // Reload product data based on selected language
+    this._loadProductData(selectedLang);
+},
+
+_loadProductData: function (lang) {
+    const oModel = this.getOwnerComponent().getModel();
+    const that = this;
+
+    const endpoint = lang === "en" ? "/Product" : "/ProductTexts";
+    const teaCategory = lang === "en" ? "Tea" : "Tee";
+    const coffeeCategory = lang === "en" ? "Coffee" : "Kaffee";
+
+    oModel.read(endpoint, {
+        success: function (oData) {
+            const teaItems = oData.results.filter(item => item.category_name === teaCategory);
+            const coffeeItems = oData.results.filter(item => item.category_name === coffeeCategory);
+
+            const teaModel = new sap.ui.model.json.JSONModel({ results: teaItems });
+            const coffeeModel = new sap.ui.model.json.JSONModel({ results: coffeeItems });
+
+            that.getView().setModel(teaModel, "teaModel");
+            that.getView().setModel(coffeeModel, "coffeeModel");
         },
+        error: function (err) {
+            console.error("Failed to load product data", err);
+        }
+    });
+},
         onMenuPress: function (oEvent) {
             if (!this._oMenuSheet) {
               this._oMenuSheet = new sap.m.ActionSheet({

@@ -10,29 +10,57 @@ sap.ui.define([
 
     return Controller.extend("project.controller.dairy", {
         onInit: function () {
-           
-            jQuery.sap.includeStyleSheet("project/css/style.css");
+    jQuery.sap.includeStyleSheet("project/css/style.css");
 
-            var oModel = this.getOwnerComponent().getModel();
-            this.getView().setModel(oModel);
-            this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
-            var oEventBus = sap.ui.getCore().getEventBus();
-      oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+    const selectedLang = localStorage.getItem("selectedLanguage") || "en";
+    this._loadProductData(selectedLang);
 
-            var dairyEggsFilter = new Filter("category/name", "EQ", "Dairy & Eggs");
-            var breadsFilter = new Filter("category/name", "EQ", "Breads");
+    const oModel = this.getOwnerComponent().getModel();
+    this.getView().setModel(oModel);
+    this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
 
-            var dairyEggsList = this.getView().byId("dairyEggsList");
-            var breadsList = this.getView().byId("breadsList");
+    const oEventBus = sap.ui.getCore().getEventBus();
+    oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+},
 
-            if (dairyEggsList?.getBinding("items")) {
-                dairyEggsList.getBinding("items").filter([dairyEggsFilter]);
-            }
+onLanguageChange: function (oEvent) {
+    const selectedLang = oEvent.getSource().getSelectedKey();
+    console.log("Language changed to:", selectedLang);
 
-            if (breadsList?.getBinding("items")) {
-                breadsList.getBinding("items").filter([breadsFilter]);
-            }
+    const i18nModel = new sap.ui.model.resource.ResourceModel({
+        bundleName: "project.i18n.i18n",
+        bundleLocale: selectedLang
+    });
+    this.getView().setModel(i18nModel, "i18n");
+
+    localStorage.setItem("selectedLanguage", selectedLang);
+    this._loadProductData(selectedLang);
+},
+
+_loadProductData: function (lang) {
+    const oModel = this.getOwnerComponent().getModel();
+    const that = this;
+
+    const endpoint = lang === "en" ? "/Product" : "/ProductTexts";
+    const dairyCategory = lang === "en" ? "Dairy & Eggs" : "Milchprodukte & Eier";
+    const breadsCategory = lang === "en" ? "Breads" : "Brote";
+
+    oModel.read(endpoint, {
+        success: function (oData) {
+            const dairyItems = oData.results.filter(item => item.category_name === dairyCategory);
+            const breadsItems = oData.results.filter(item => item.category_name === breadsCategory);
+
+            const dairyModel = new sap.ui.model.json.JSONModel({ results: dairyItems });
+            const breadsModel = new sap.ui.model.json.JSONModel({ results: breadsItems });
+
+            that.getView().setModel(dairyModel, "dairyModel");
+            that.getView().setModel(breadsModel, "breadsModel");
         },
+        error: function (err) {
+            console.error("Failed to load product data", err);
+        }
+    });
+},
         onFruitsPress: function () {
           var oFruitList = this.byId("dairyEggsList");
           if (oFruitList) {

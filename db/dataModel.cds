@@ -38,6 +38,8 @@ entity ProductText {
   key locale      : String;
   name            : String;
   quantity        : String;
+  price           : Integer;
+  stock           : Integer;
   image           : String;
   category        : Association to CategoryText
 }
