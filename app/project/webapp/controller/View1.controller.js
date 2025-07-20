@@ -10,28 +10,46 @@ sap.ui.define([
   "use strict";
 
   return Controller.extend("project.controller.View1", {
-    onInit() {
+    onInit: function () {
+  // Set view model to show language selector
       this.oModel = this.getOwnerComponent().getModel();
       this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
-    
-      // Disable right-click
-  
-    },
-    onLanguageChange: function (oEvent) {
-      const selectedLang = oEvent.getSource().getSelectedKey();
-    
-      // Create a new i18n model with the selected language
+      const viewModel = new sap.ui.model.json.JSONModel({ showLanguageSelector: true, enableLanguageSelector: true });
+      this.getView().setModel(viewModel, "viewModel");
+
+      // Load selected language or default
+      const selectedLang = "en";
+      console.log(selectedLang);
+
+      // Set i18n model globally
       const i18nModel = new sap.ui.model.resource.ResourceModel({
-        bundleName: "project.i18n.i18n", // adjust to your actual namespace
+        bundleName: "project.i18n.i18n",
         bundleLocale: selectedLang
       });
-    
-      // Set the new model to the view
-      this.getView().setModel(i18nModel, "i18n");
-    
-      // Optional: store the language in localStorage
+      this.getOwnerComponent().setModel(i18nModel, "i18n");
       
-    },    
+
+      // Load localized product data
+},
+
+onLanguageChange: function (oEvent) {
+  const selectedLang = oEvent.getSource().getSelectedKey();
+
+  // Store selected language
+  localStorage.setItem("selectedLanguage", selectedLang);
+  console.log(selectedLang);
+
+  // Set i18n model globally
+  const i18nModel = new sap.ui.model.resource.ResourceModel({
+    bundleName: "project.i18n.i18n",
+    bundleLocale: selectedLang
+  });
+  this.getOwnerComponent().setModel(i18nModel, "i18n");
+
+  sap.ui.getCore().getEventBus().publish("language", "changed", { language: selectedLang });
+
+},
+  
     onMenuPress: function (oEvent) {
       if (!this._oMenuSheet) {
         this._oMenuSheet = new sap.m.ActionSheet({

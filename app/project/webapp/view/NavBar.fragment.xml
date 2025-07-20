@@ -40,7 +40,10 @@
                 <Button icon="sap-icon://customer" press="onProfilePress" class="largeIconButton" type="Transparent"/>
                 <Button icon="sap-icon://cart" press="onCartPress" class="largeIconButton" type="Transparent" id="cartButton"/>
                 <Label text="{cartStatusModel>/cartCount}" class="cartBadge" visible="{= ${cartStatusModel>/cartCount} > 0 }"/>
-                <Select id="languageSelector" change="onLanguageChange">
+                <Select id="languageSelector"
+                        change="onLanguageChange"
+                        visible="{viewModel>/showLanguageSelector}"
+                        enabled="{viewModel>/enableLanguageSelector}">
                 <items>
                     <core:Item key="en" text="English" />
                     <core:Item key="de" text="Deutsch" />

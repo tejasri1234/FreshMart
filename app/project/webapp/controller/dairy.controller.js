@@ -12,8 +12,20 @@ sap.ui.define([
         onInit: function () {
     jQuery.sap.includeStyleSheet("project/css/style.css");
 
+    const viewModel = new sap.ui.model.json.JSONModel({ showLanguageSelector: false, enableLanguageSelector: false });
+    this.getView().setModel(viewModel, "viewModel");
+
     const selectedLang = localStorage.getItem("selectedLanguage") || "en";
-    this._loadProductData(selectedLang);
+   
+
+    const i18nModel = new sap.ui.model.resource.ResourceModel({
+        bundleName: "project.i18n.i18n",
+        bundleLocale: selectedLang
+      });
+      
+      this.getOwnerComponent().setModel(i18nModel, "i18n");
+      this._loadProductData(selectedLang);
+      sap.ui.getCore().getEventBus().subscribe("language", "changed", this._onLanguageChanged, this);
 
     const oModel = this.getOwnerComponent().getModel();
     this.getView().setModel(oModel);
@@ -23,20 +35,17 @@ sap.ui.define([
     oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
 },
 
-onLanguageChange: function (oEvent) {
-    const selectedLang = oEvent.getSource().getSelectedKey();
-    console.log("Language changed to:", selectedLang);
+_onLanguageChanged: function (_, __, oData) {
+      const selectedLang = oData.language;
 
-    const i18nModel = new sap.ui.model.resource.ResourceModel({
+      const i18nModel = new sap.ui.model.resource.ResourceModel({
         bundleName: "project.i18n.i18n",
         bundleLocale: selectedLang
-    });
-    this.getView().setModel(i18nModel, "i18n");
+      });
+      this.getOwnerComponent().setModel(i18nModel, "i18n");
 
-    localStorage.setItem("selectedLanguage", selectedLang);
-    this._loadProductData(selectedLang);
-},
-
+      this._loadProductData(selectedLang);
+    },
 _loadProductData: function (lang) {
     const oModel = this.getOwnerComponent().getModel();
     const that = this;

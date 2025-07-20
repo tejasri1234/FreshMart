@@ -13,15 +13,38 @@ sap.ui.define([
     onInit: function () {
       jQuery.sap.includeStyleSheet("project/css/style.css");
 
+      // Hide or disable language selector in this view
+      const viewModel = new sap.ui.model.json.JSONModel({ showLanguageSelector: false, enableLanguageSelector: false });
+      this.getView().setModel(viewModel, "viewModel");
+
       const selectedLang = localStorage.getItem("selectedLanguage") || "en";
       this._loadProductData(selectedLang);
-
       const oModel = this.getOwnerComponent().getModel();
       this.getView().setModel(oModel);
       this.getView().setModel(new sap.ui.model.json.JSONModel({ results: [] }), "searchModel");
 
       const oEventBus = sap.ui.getCore().getEventBus();
       oEventBus.subscribe("cart", "updated", this.onCartUpdated, this);
+
+      // Set i18n model globally
+      const i18nModel = new sap.ui.model.resource.ResourceModel({
+        bundleName: "project.i18n.i18n",
+        bundleLocale: selectedLang
+      });
+      this.getOwnerComponent().setModel(i18nModel, "i18n");
+      sap.ui.getCore().getEventBus().subscribe("language", "changed", this._onLanguageChanged, this);
+    },
+
+    _onLanguageChanged: function (_, __, oData) {
+      const selectedLang = oData.language;
+
+      const i18nModel = new sap.ui.model.resource.ResourceModel({
+        bundleName: "project.i18n.i18n",
+        bundleLocale: selectedLang
+      });
+      this.getOwnerComponent().setModel(i18nModel, "i18n");
+
+      this._loadProductData(selectedLang);
     },
     _loadProductData: function (lang) {
       const oModel = this.getOwnerComponent().getModel();
@@ -36,33 +59,13 @@ sap.ui.define([
           const fruits = oData.results.filter(item => item.category_name === fruitCategory);
           const vegetables = oData.results.filter(item => item.category_name === vegetableCategory);
 
-          const fruitModel = new sap.ui.model.json.JSONModel({ results: fruits });
-          const vegetableModel = new sap.ui.model.json.JSONModel({ results: vegetables });
-
-          that.getView().setModel(fruitModel, "fruitModel");
-          that.getView().setModel(vegetableModel, "vegetableModel");
+          that.getView().setModel(new sap.ui.model.json.JSONModel({ results: fruits }), "fruitModel");
+          that.getView().setModel(new sap.ui.model.json.JSONModel({ results: vegetables }), "vegetableModel");
         },
         error: function (err) {
           console.error("Failed to load product data", err);
         }
       });
-    },
-    onLanguageChange: function (oEvent) {
-      const selectedLang = oEvent.getSource().getSelectedKey();
-      console.log("Language changed to:", selectedLang);
-
-      // Set new i18n model
-      const i18nModel = new sap.ui.model.resource.ResourceModel({
-        bundleName: "project.i18n.i18n",
-        bundleLocale: selectedLang
-      });
-      this.getView().setModel(i18nModel, "i18n");
-
-      // Store selected language
-      localStorage.setItem("selectedLanguage", selectedLang);
-
-      // Reload product data based on selected language
-      this._loadProductData(selectedLang);
     },
     onFruitsPress: function () {
       var oFruitList = this.byId("fruitList");
